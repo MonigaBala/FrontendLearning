@@ -60,22 +60,42 @@ function renderMenu() {
     const card = document.createElement('div');
     card.classList.add('menu-card');
     card.innerHTML = `
-      <div class="menu-card-inner">
-        <img src="${d.image}" alt="${d.name}">
-        <div class="badges">
-          ${d.featured ? '<span class="badge featured-badge">⭐ Chef\'s Recommendation</span>' : ''}
-          ${d.dishOfTheDay ? '<span class="badge dish-of-the-day-badge">🆕 Dish of the Day</span>' : ''}
-          ${d.special && d.offer ? `<span class="badge special-badge">🔥 ${d.offer}</span>` : ''}
-        </div>
-        <div class="menu-card-content">
-          <h3>${d.name}</h3>
-          <p>${d.description}</p>
-          <p class="price">${d.price}</p>
-        </div>
-      </div>
-    `;
+  <div class="menu-card-inner">
+    <!-- FRONT -->
+    <div class="menu-card-front">
+  <img src="${d.image}" alt="${d.name}">
+  
+  <div class="badges">
+    ${d.featured ? '<span class="badge featured-badge">⭐ Chef\'s Recommendation</span>' : ''}
+    ${d.dishOfTheDay ? '<span class="badge dish-of-the-day-badge">🆕 Dish of the Day</span>' : ''}
+    ${d.special && d.offer ? `<span class="badge special-badge">🔥 ${d.offer}</span>` : ''}
+  </div>
+
+  <div class="menu-card-content">
+    <h3>${d.name}</h3>
+    <p class="price">${d.price}</p>
+  </div>
+</div>
+
+    <!-- BACK -->
+    <div class="menu-card-back">
+      <h3>${d.name}</h3>
+      <p>${d.description}</p>
+      <p class="price">${d.price}</p>
+      <p class="back-category">Category: ${d.category}</p>
+    </div>
+  </div>
+`;
     cardsContainer.appendChild(card);
+    card.addEventListener("click", () => {
+  card.classList.toggle("flip");
+});
+
   });
+  function flipCard(card) {
+    card.classList.toggle("flip");
+}
+
 
   // Table
   tableBody.innerHTML = '';
@@ -165,19 +185,25 @@ dishForm.addEventListener('submit', e => {
 // Render admin table
 function renderAdminTable() {
   adminTableBody.innerHTML = '';
+
   dishes.forEach((d, i) => {
     const row = document.createElement('tr');
+
     row.innerHTML = `
       <td>${d.name}</td>
       <td>${d.category}</td>
       <td>
-        <button class="btn edit-dish">Edit</button>
-        <button class="btn delete-dish">Delete</button>
+        <div class="action-buttons">
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </div>
       </td>
     `;
+
     adminTableBody.appendChild(row);
 
-    row.querySelector('.edit-dish').addEventListener('click', () => {
+    // FIXED: Correct selectors
+    row.querySelector('.edit-btn').addEventListener('click', () => {
       document.getElementById('dishIndex').value = i;
       document.getElementById('dishName').value = d.name;
       document.getElementById('dishDesc').value = d.description;
@@ -190,7 +216,7 @@ function renderAdminTable() {
       document.getElementById('dishOfTheDay').checked = d.dishOfTheDay;
     });
 
-    row.querySelector('.delete-dish').addEventListener('click', () => {
+    row.querySelector('.delete-btn').addEventListener('click', () => {
       if (confirm(`Delete ${d.name}?`)) {
         dishes.splice(i, 1);
         localStorage.setItem('menuItems', JSON.stringify(dishes));
@@ -200,6 +226,7 @@ function renderAdminTable() {
     });
   });
 }
+
 
 // -----------------------------
 // Initial Render

@@ -414,6 +414,75 @@ footer img {
 body.dark footer {
     background: #111;
 }
+/* --------------------------------------------
+   FINAL FIX — Remove unwanted hover red text
+--------------------------------------------- */
+.menu-card h3,
+.menu-card p,
+.menu-card .price {
+    transition: color 0.2s ease;
+}
+
+/* Do NOT change colors on hover */
+.menu-card:hover h3,
+.menu-card:hover p,
+.menu-card:hover .price {
+    color: inherit !important;
+}
+
+/* Ensure stable colors in light mode */
+.menu-card h3 { color: #222 !important; }
+.menu-card p { color: #555 !important; }
+.menu-card .price { color: #ff4d4d !important; }
+
+/* Ensure stable colors in dark mode */
+body.dark .menu-card h3 { color: #fff !important; }
+body.dark .menu-card p { color: #dcdcdc !important; }
+body.dark .menu-card .price { color: #ff8080 !important; }
+/* Proper alignment directly under image */
+.menu-card-front .content,
+.menu-card-content {
+    text-align: center;
+    padding: 12px;
+}
+
+.menu-card-front .content h3,
+.menu-card-content h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.menu-card-front .content .price,
+.menu-card-content .price {
+    margin-top: 4px;
+    font-size: 16px;
+    font-weight: 700;
+}
+/* Side-by-side edit & delete buttons inside admin table */
+.admin-table td .action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.admin-table td button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+}
+/* Clean dark mode – no conflicts */
+body.dark .menu-card {
+    background: #1c1c1c !important;
+    border: 1px solid #333;
+}
+body.dark .menu-card-front,
+body.dark .menu-card-back {
+    background: #1c1c1c !important;
+}
+
 /* ---------------------------------------------------
    MENU SECTION
 ---------------------------------------------------- */
@@ -783,206 +852,672 @@ body.dark .admin-modal-content select {
         height: 130px;
     }
 }
-
 /* ---------------------------------------------------
-   CONTACT SECTION
+   FLIP CARD EFFECT
 ---------------------------------------------------- */
-.contact-section, .map-section, .delivery-section {
-    max-width: 1100px;
-    margin: 50px auto;
-    padding: 0 20px;
+
+.menu-card {
+    perspective: 1000px;    /* Enables 3D effect */
+    height: 300px;
 }
 
-.contact-section h2,
-.map-section h2,
-.delivery-section h2 {
-    font-family: "Playfair Display", serif;
-    font-size: 32px;
-    margin-bottom: 25px;
+.menu-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    cursor: pointer;
+}
+
+.menu-card.flip .menu-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* FRONT SIDE */
+.menu-card-front,
+.menu-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* FRONT keeps your existing design */
+.menu-card-front img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* BACK SIDE */
+.menu-card-back {
+    background: #fafafa;
+    transform: rotateY(180deg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+body.dark .menu-card-back {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+/* Back-side text styles */
+.menu-card-back h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.menu-card-back p {
+    font-size: 14px;
+}
+/* ------------------------------
+   Menu Card Flip Container
+-------------------------------- */
+.menu-card {
+  width: 300px;
+  height: 380px;
+  perspective: 1000px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.menu-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.menu-card:hover .menu-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* ------------------------------
+   Front & Back
+-------------------------------- */
+.menu-card-front,
+.menu-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Front Side */
+.menu-card-front {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-card-front img {
+  width: 100%;
+  height: 68%;
+  object-fit: cover;
+}
+
+/* Text */
+.menu-card-front .content {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.menu-card-front .content h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.menu-card-front .content p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Price Tag */
+.menu-card-front .price-tag {
+  background: #ff8800;
+  padding: 6px 12px;
+  width: fit-content;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  margin: 10px auto;
+}
+
+/* Back Side */
+.menu-card-back {
+  background: #242424;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  text-align: center;
+  color: white;
+}
+
+.menu-card-back h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.menu-card-back p {
+  font-size: 15px;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+/* ------------------------------
+   EDIT MENU BUTTON
+-------------------------------- */
+.edit-menu-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #ff5500;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+
+.edit-menu-btn:hover {
+  background: #e04400;
+  transform: scale(1.05);
+}
+/* ---------------------------
+   DARK MODE FIX FOR MENU PAGE
+---------------------------- */
+.dark-theme body,
+.dark-theme main,
+.dark-theme .menu-section,
+.dark-theme .menu-cards,
+.dark-theme .flip-card,
+.dark-theme .flip-card-inner,
+.dark-theme .flip-card-front,
+.dark-theme .flip-card-back {
+  color: #fff !important;
+}
+
+/* Card front + back background */
+.dark-theme .flip-card-front,
+.dark-theme .flip-card-back {
+  background: #222 !important;
+  border: 1px solid #444;
+}
+
+/* Text inside cards */
+.dark-theme .flip-card-info h3,
+.dark-theme .flip-card-info p,
+.dark-theme .flip-card-price {
+  color: #fff !important;
+}
+
+/* Filters, search input */
+.dark-theme .menu-controls input,
+.dark-theme .menu-filters button {
+  background: #333 !important;
+  color: #fff !important;
+  border: 1px solid #555 !important;
+}
+
+/* Edit Menu button */
+.dark-theme #editMenuBtn {
+  background: #444 !important;
+  color: #fff !important;
+  border: 1px solid #666 !important;
+}
+
+/* Table fix */
+.dark-theme table,
+.dark-theme th,
+.dark-theme td {
+  color: #fff !important;
+  background: #222 !important;
+  border-color: #555 !important;
+}
+
+/* Chef Recommendations section */
+.dark-theme .offers-section h2,
+.dark-theme .offers-section li {
+  color: #fff !important;
+}
+/* -----------------------------
+   MENU CARD TEXT ALIGNMENT FIX
+------------------------------ */
+.menu-card .dish-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 10px;
+}
+
+.menu-card .dish-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.menu-card .dish-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+/* -----------------------------
+     LIGHT MODE CARD COLORS
+------------------------------ */
+.menu-card {
+  background: #fff;
+  color: #222;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.menu-card .dish-name,
+.menu-card .dish-price {
+  color: #222;
+}
+
+/* -----------------------------
+       DARK MODE CARD COLORS
+------------------------------ */
+.dark-theme .menu-card {
+  background: #1e1e1e !important;
+  color: #fff !important;
+  border: 1px solid #333 !important;
+}
+
+.dark-theme .menu-card .dish-name,
+.dark-theme .menu-card .dish-price {
+  color: #fff !important;
+}
+.dark-theme .flip-card-back {
+  background: #111 !important;
+  color: #fff !important;
+}
+/* ----------------------------------------
+   MENU CARD TEXT AREA – CLEAN ALIGNMENT
+----------------------------------------- */
+.menu-card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Dish Name */
+.menu-card-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    color: #222;     /* Light mode default */
+}
+
+/* Description */
+.menu-card-content p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #555;     /* Light mode default */
+    margin: 0;
+}
+
+/* Price */
+.menu-card-content .price {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ff4d4d;
+}
+
+/* ----------------------------------------
+   DARK THEME FIX – PERFECT COLORS
+----------------------------------------- */
+body.dark .menu-card-content h3 {
+    color: #ffffff !important;
+}
+
+body.dark .menu-card-content p {
+    color: #d0d0d0 !important;
+}
+
+body.dark .menu-card-content .price {
+    color: #ff8080 !important;
+}
+
+/* ----------------------------------------
+   HOVER EFFECT – TEXT CLEAR + BRIGHT
+----------------------------------------- */
+.menu-card:hover h3 {
+    color: #ff4d4d;
+}
+
+.menu-card:hover p {
+    color: #333;
+}
+
+.menu-card:hover .price {
+    color: #e63636;
+}
+
+/* DARK THEME – hover */
+body.dark .menu-card:hover h3 {
+    color: #ff6666 !important;
+}
+
+body.dark .menu-card:hover p {
+    color: #f1f1f1 !important;
+}
+
+body.dark .menu-card:hover .price {
+    color: #ff4d4d !important;
+}
+/* -------------------------------------------------
+   DARK THEME FIX – FORCE TEXT COLOR CHANGE
+-------------------------------------------------- */
+body.dark .menu-card,
+body.dark .menu-card * {
+    color: #ffffff !important;
+}
+
+/* Price should stay highlighted */
+body.dark .menu-card .price {
+    color: #ff8080 !important;
+}
+body.dark .menu-card-front h3,
+body.dark .menu-card-front p {
+    color: #ffffff !important;
+}
+.menu-card-content h3,
+.menu-card-content .price {
+    color: #222;
     text-align: center;
 }
 
-.contact-section form {
-    display: grid;
-    gap: 20px;
-    background: #fafafa;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+body.dark .menu-card-content h3,
+body.dark .menu-card-content .price {
+    color: #fff;
+}
+.menu-card:hover h3,
+.menu-card:hover .price {
+    color: inherit !important;
 }
 
-body.dark .contact-section form {
-    background: #1e1e1e;
+/* ------------------------------------
+   Contact & Map Section Layout
+--------------------------------------- */
+.contact-map-section {
+  display: flex;
+  gap: 30px;
+  padding: 40px 20px;
+  align-items: flex-start;
+  justify-content: center;
 }
 
+/* Contact Form Box */
+.contact-form-container {
+  flex: 1;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.contact-form-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: left;
+}
+
+/* Form Fields */
 .form-group {
-    display: flex;
-    flex-direction: column;
+  margin-bottom: 18px;
 }
 
 .form-group label {
-    margin-bottom: 5px;
-    font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 
 .form-group input,
 .form-group select {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
 }
 
-body.dark .form-group input,
-body.dark .form-group select {
-    background: #333;
-    color: #e5e5e5;
-    border: 1px solid #555;
+.btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  background: #e63946;
+  color: white;
+  border-radius: 8px;
+  font-size: 17px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
-.contact-section .btn {
-    width: fit-content;
-    margin: 10px auto 0;
+.btn:hover {
+  background: #c5303c;
 }
 
-/* ---------------------------------------------------
-   DELIVERY OPTIONS
----------------------------------------------------- */
-.delivery-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
+/* Map Section */
+.map-container {
+  flex: 1;
+  height: 480px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
-.delivery-card {
-    background: #fff;
-    border-radius: 12px;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.delivery-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-.delivery-card img {
-    width: 80px;
-    margin-bottom: 15px;
-}
-
-.delivery-card h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
-}
-
-.delivery-card p {
-    font-size: 14px;
-    margin-bottom: 15px;
-    color: #555;
-}
-
-body.dark .delivery-card {
-    background: #222;
-}
-
-body.dark .delivery-card p {
-    color: #ccc;
-}
-/* ---------------------------------------------------
-   CONTACT & MAP (2-column layout)
----------------------------------------------------- */
-.contact-map-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 0 20px;
-}
-
-.contact-form-container, .map-container {
-    background: #fafafa;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-body.dark .contact-form-container, body.dark .map-container {
-    background: #1e1e1e;
-}
-
-.contact-form-container h2, .map-container h2 {
-    text-align: center;
-    font-family: "Playfair Display", serif;
-    margin-bottom: 20px;
+.map-container h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
 }
 
 .map-container iframe {
-    width: 100%;
-    height: 100%;
-    min-height: 400px;
-    border-radius: 12px;
+  width: 100%;
+  height: calc(100% - 40px);
+  border: 0;
+  border-radius: 10px;
 }
 
-/* Mobile responsiveness */
+/* ------------------------------------
+   Responsive Layout (Mobile)
+--------------------------------------- */
 @media (max-width: 900px) {
-    .contact-map-section {
-        grid-template-columns: 1fr;
-    }
+  .contact-map-section {
+    flex-direction: column;
+  }
 
-    .contact-form-container, .map-container {
-        margin-bottom: 30px;
-    }
+  .map-container {
+    height: 350px;
+  }
+}
+/* Dark Mode Styles */
+body.dark-mode .contact-form-container,
+body.dark-mode .map-container {
+  background: #1e1e1e;     /* dark card background */
+  color: white;            /* text becomes white */
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
 }
 
-/* ---------------------------------------------------
-   DELIVERY CARDS
----------------------------------------------------- */
+body.dark-mode .contact-form-container h2,
+body.dark-mode .map-container h2,
+body.dark-mode .form-group label {
+  color: white;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select {
+  background: #2b2b2b;
+  color: white;
+  border: 1px solid #555;
+}
+
+body.dark-mode .form-group input::placeholder,
+body.dark-mode .form-group select option {
+  color: #ddd;
+}
+
+body.dark-mode .btn {
+  background: #ff6b81;
+  color: white;
+}
+
+/* Map iframe border style in dark mode */
+body.dark-mode .map-container iframe {
+  border: 1px solid #555;
+}
+
+
+/* ---------------- Delivery Options ---------------- */
+.delivery-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.delivery-section h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
 .delivery-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .delivery-card {
-    background: #fff;
+    background: #fafafa;
     border-radius: 12px;
-    text-align: center;
     padding: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 220px;        /* uniform width */
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .delivery-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .delivery-card img {
     width: 80px;
+    height: 80px;
+    object-fit: contain;
     margin-bottom: 15px;
 }
 
 .delivery-card h3 {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 8px;
 }
 
 .delivery-card p {
     font-size: 14px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     color: #555;
 }
 
+.delivery-card .btn {
+    padding: 8px 15px;
+    border-radius: 25px;
+    background: #ff4d4d;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.delivery-card .btn:hover {
+    background: #e63636;
+}
+
+/* Dark mode support */
 body.dark .delivery-card {
-    background: #222;
+    background: #1e1e1e;
+    color: #e5e5e5;
 }
 
 body.dark .delivery-card p {
     color: #ccc;
+}
+
+body.dark .delivery-card .btn {
+    background: #ff6666;
+}
+/* Tablet */
+@media (max-width: 768px) {
+    .delivery-card {
+        width: 45%; /* 2 cards per row */
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .delivery-card {
+        width: 90%; /* 1 card per row, centered */
+    }
+}
+/* Map Box */
+#map {
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Route Buttons */
+.route-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.route-buttons button {
+  padding: 10px 14px;
+  border: none;
+  background: #e63946;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.route-buttons button:hover {
+  background: #c5303c;
+}
+
+/* Dark Mode Map UI */
+body.dark-mode #map {
+  border: 1px solid #555;
+}
+
+body.dark-mode .route-buttons button {
+  background: #ff6b81;
 }

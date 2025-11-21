@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Bella Vita - Contact & Reservation</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
 </head>
 <body>
 
@@ -76,12 +78,17 @@
       </form>
     </div>
 
-    <div class="map-container">
-      <h2>Find Us Here</h2>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.123456789012!2d77.000000!3d11.000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba1234567890123%3A0x123456789abcdef!2sLa%20Bella%20Vita%20Restaurant!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
-        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
+   <div class="map-container">
+  <h2>Find Us Here</h2>
+  <div id="map"></div>
+
+  <div class="route-buttons">
+    <button onclick="showRoute('airport')">From Coimbatore Airport</button>
+    <button onclick="showRoute('bus')">From Gandhipuram Bus Stand</button>
+    <button onclick="showRoute('rail')">From Coimbatore Railway Station</button>
+  </div>
+</div>
+
   </section>
 
   <!-- Delivery Options -->
@@ -126,5 +133,52 @@
 
   <script src="js/main.js"></script>
   <script src="js/contact.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+
+<script>
+// Restaurant (La Bella Vita – RS Puram, Coimbatore)
+const restaurantLoc = [11.010853, 76.948708];
+
+// Key starting points
+const locations = {
+  airport: [11.0299, 77.0434],      // Coimbatore Airport
+  bus: [11.0187, 76.9725],          // Gandhipuram Bus Stand
+  rail: [10.9960, 76.9553]          // Coimbatore Junction Railway Station
+};
+
+// Initialize Map
+const map = L.map('map').setView(restaurantLoc, 14);
+
+// Add Map Tiles (auto adjusts for dark mode)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19
+}).addTo(map);
+
+// Restaurant Marker
+const restaurantMarker = L.marker(restaurantLoc).addTo(map);
+restaurantMarker.bindPopup("<b>La Bella Vita Restaurant</b><br>RS Puram, Coimbatore").openPopup();
+
+let routeControl = null;
+
+// Show Routes
+function showRoute(place) {
+  if (routeControl) map.removeControl(routeControl);
+
+  routeControl = L.Routing.control({
+    waypoints: [
+      L.latLng(locations[place]),
+      L.latLng(restaurantLoc)
+    ],
+    lineOptions: { addWaypoints: false },
+    router: L.Routing.osrmv1({
+      serviceUrl: 'https://router.project-osrm.org/route/v1'
+    }),
+    show: false,
+    collapsible: true
+  }).addTo(map);
+}
+</script>
+
 </body>
 </html>
