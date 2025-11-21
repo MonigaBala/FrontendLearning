@@ -1,0 +1,29 @@
+{
+  "features": [
+    {
+      "name": "Fresh Ingredients",
+      "image": "images/features/fresh.jpg",
+      "description": "We use only the freshest locally sourced ingredients for all dishes."
+    },
+    {
+      "name": "Cozy Ambiance",
+      "image": "images/features/ambiance.jpg",
+      "description": "Our restaurant offers a warm and inviting environment for all guests."
+    },
+    {
+      "name": "Top Chefs",
+      "image": "images/features/chef1.jpg",
+      "description": "Our head chefs are internationally trained and specialize in Italian cuisine."
+    },
+    {
+      "name": "Fine Dining Experience",
+      "image": "images/features/finedining.jpg",
+      "description": "Enjoy elegant dining with premium table settings and personalized service."
+    },
+    {
+      "name": "Live Music Evenings",
+      "image": "images/features/music.jpg",
+      "description": "Relax and enjoy live performances while savoring our exquisite menu."
+    }
+  ]
+}

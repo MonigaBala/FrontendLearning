@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Bella Vita - Menu</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+ <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <div class="logo">🍽️ <span class="brand">La Bella Vita</span></div>
+      </div>
+        <div class="hamburger" id="hamburger" aria-label="Open menu">&#9776;</div>
+    
+      <div class="nav-center">
+        <ul class="nav-links" id="navLinks">
+          <li><a class="nav-btn" href="index.html">Home</a></li>
+          <li><a class="nav-btn" href="menu.html">Menu</a></li>
+          <li><a class="nav-btn" href="contact.html">Contact & Reservation</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-right">
+        <!-- Animated Offer Tag (compact) -->
+        <div class="offer-tag" id="offerTag" title="Click to view offer details">
+          <span class="offer-icon">🔥</span>
+          <span class="offer-text">Special Offer Ends In</span>
+          <span class="offer-timer" id="timer">--:--:--</span>
+        </div>
+
+        <div class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">🌙</div>
+
+      </div>
+    </nav>
+  </header>
+  <!-- Menu Section -->
+  <main>
+    <section class="menu-section">
+      <h2>Our Delicious Menu</h2>
+
+      <!-- Admin Edit Menu Button -->
+      <button id="editMenuBtn" class="btn">Edit Menu</button>
+
+      <!-- Filters & Search -->
+      <div class="menu-controls">
+        <input type="text" id="searchInput" placeholder="Search dishes...">
+        <div class="menu-filters">
+          <!-- Filter buttons generated dynamically -->
+        </div>
+      </div>
+
+      <!-- Cards Container -->
+      <div class="menu-cards" id="menuCardsContainer"></div>
+
+      <!-- Table -->
+      <table class="menu-table">
+        <thead>
+          <tr>
+            <th>Dish Name</th>
+            <th>Description</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody id="menuTableBody"></tbody>
+      </table>
+    </section>
+
+    <!-- Chef's Recommendations -->
+    <section class="offers-section">
+      <h2>Chef’s Recommendations</h2>
+      <ul id="offersList"></ul>
+    </section>
+  </main>
+
+  <!-- Admin Modal -->
+  <div id="adminModal" class="admin-modal">
+    <div class="admin-modal-content">
+      <span class="close" id="adminClose">&times;</span>
+      <h3>Menu Management</h3>
+
+      <!-- Add/Edit Form -->
+      <form id="dishForm">
+        <input type="hidden" id="dishIndex">
+        <input type="text" id="dishName" placeholder="Dish Name" required>
+        <input type="text" id="dishDesc" placeholder="Description" required>
+        <input type="text" id="dishPrice" placeholder="Price" required>
+        <input type="text" id="dishImage" placeholder="Image URL" required>
+        <input type="text" id="dishCategory" placeholder="Category (pizza, pasta, dessert, etc.)" required>
+        <label><input type="checkbox" id="dishFeatured"> Featured</label>
+        <label><input type="checkbox" id="dishSpecial"> Special</label>
+        <input type="text" id="dishOffer" placeholder="Offer (if special)">
+        <label><input type="checkbox" id="dishOfTheDay"> Dish of the Day</label>
+        <button type="submit" class="btn">Save Dish</button>
+      </form>
+
+      <h4>Existing Dishes</h4>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="adminTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 La Bella Vita. All Rights Reserved.</p>
+      <div class="social-icons">
+        <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="icons/instagram.jpg" alt="Instagram"></a>
+        <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
+      </div>
+      <p>123 Culinary Street, Foodie City, Country | +91 9876543210</p>
+    </div>
+  </footer>
+
+  <script src="js/menu.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

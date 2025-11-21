@@ -1,0 +1,152 @@
+{
+  "menuItems": [
+    {
+      "name": "Margherita Pizza",
+      "description": "Classic pizza with fresh tomatoes, mozzarella, and basil.",
+      "price": "₹350",
+      "image": "images/dishes/margherita.jpg",
+      "featured": true,
+      "special": true,
+      "offer": "20% off Today!",
+      "category": "pizza",
+      "dishOfTheDay": false
+    },
+    {
+      "name": "Pasta Alfredo",
+      "description": "Creamy pasta with parmesan and herbs.",
+      "price": "₹300",
+      "image": "images/dishes/alfredo.jpg",
+      "featured": true,
+      "special": false,
+      "category": "pasta",
+      "dishOfTheDay": false
+    },
+    {
+      "name": "Caesar Salad",
+      "description": "Fresh romaine lettuce with Caesar dressing and croutons.",
+      "price": "₹250",
+      "image": "images/dishes/caesar.jpg",
+      "featured": false,
+      "special": true,
+      "offer": "Buy 1 Get 1 Free",
+      "category": "salad",
+      "dishOfTheDay": false
+    },
+    {
+      "name": "Tiramisu",
+      "description": "Classic Italian dessert with coffee and mascarpone.",
+      "price": "₹200",
+      "image": "images/dishes/tiramisu.jpg",
+      "featured": true,
+      "special": false,
+      "category": "dessert",
+      "dishOfTheDay": false
+    },
+    {
+      "name": "Pepperoni Pizza",
+      "description": "Spicy pepperoni slices with mozzarella and tomato sauce.",
+      "price": "₹400",
+      "image": "images/dishes/pepperoni.jpg",
+      "featured": true,
+      "special": true,
+      "offer": "15% off Today!",
+      "category": "pizza",
+      "dishOfTheDay": false
+    },
+    {
+      "name": "Veggie Supreme Pizza",
+      "description": "Loaded with bell peppers, onions, mushrooms, and olives.",
+      "price": "₹380",
+      "image": "images/dishes/veggie_supreme.jpg",
+      "featured": false,
+      "special": true,
+      "offer": "10% off Today!",
+      "category": "pizza",
+      "dishOfTheDay": false
+    },
+    {
+      "name": "Pasta Arrabbiata",
+      "description": "Pasta tossed in spicy tomato sauce with garlic and chili.",
+      "price": "₹320",
+      "image": "images/dishes/arrabbiata.jpg",
+      "featured": true,
+      "special": true,
+      "offer": "Combo with Garlic Bread",
+      "category": "pasta",
+      "dishOfTheDay": false
+    },
+    {
+      "name": "Fettuccine Carbonara",
+      "description": "Creamy pasta with bacon, egg, and parmesan.",
+      "price": "₹350",
+      "image": "images/dishes/carbonara.jpg",
+      "featured": false,
+      "special": false,
+      "category": "pasta",
+      "dishOfTheDay": true
+    },
+    {
+      "name": "Chocolate Lava Cake",
+      "description": "Warm chocolate cake with a molten chocolate center.",
+      "price": "₹220",
+      "image": "images/dishes/lava_cake.jpg",
+      "featured": true,
+      "special": true,
+      "offer": "Free Ice Cream Scoop",
+      "category": "dessert",
+      "dishOfTheDay": false
+    },
+    {
+      "name": "Panna Cotta",
+      "description": "Creamy Italian dessert with berry coulis.",
+      "price": "₹210",
+      "image": "images/dishes/panna_cotta.jpg",
+      "featured": false,
+      "special": false,
+      "category": "dessert",
+      "dishOfTheDay": false
+    },
+    {
+      "name": "Bruschetta",
+      "description": "Grilled bread topped with fresh tomatoes, basil, and olive oil.",
+      "price": "₹180",
+      "image": "images/dishes/bruschetta.jpg",
+      "featured": true,
+      "special": true,
+      "offer": "5% off Today!",
+      "category": "appetizer",
+      "dishOfTheDay": false
+    },
+    {
+      "name": "Greek Salad",
+      "description": "Fresh vegetables with feta cheese, olives, and olive oil dressing.",
+      "price": "₹260",
+      "image": "images/dishes/greek_salad.jpg",
+      "featured": false,
+      "special": false,
+      "category": "salad",
+      "dishOfTheDay": true
+    },
+    {
+      "name": "Mojito",
+      "description": "Refreshing mint and lime drink.",
+      "price": "₹150",
+      "image": "images/dishes/mojito.jpg",
+      "featured": true,
+      "special": false,
+      "category": "drinks",
+      "dishOfTheDay": false
+    },
+    {
+      "name": "Garlic Bread",
+      "description": "Toasted bread with garlic butter and herbs.",
+      "price": "₹120",
+      "image": "images/dishes/garlic_bread.jpg",
+      "featured": false,
+      "special": true,
+      "offer": "Buy 2 Get 1 Free",
+      "category": "appetizer",
+      "dishOfTheDay": false
+    }
+  ]
+}
