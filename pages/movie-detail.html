@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details | CineMagic Productions</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .movie-hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: flex-end;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        
+        .movie-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.98), transparent 60%);
+        }
+        
+        .movie-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 60px 0;
+            width: 100%;
+        }
+        
+        .movie-poster-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .movie-poster-container img {
+            width: 100%;
+            display: block;
+        }
+        
+        .movie-title-main {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+        
+        .movie-tagline {
+            font-size: 20px;
+            color: var(--accent-gold);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .movie-badges {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .movie-badges .badge {
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .rating-stars {
+            color: var(--accent-gold);
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-watch-trailer {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-watch-trailer:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-add-watchlist {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+        
+        .btn-add-watchlist:hover {
+            background: var(--white);
+            color: var(--primary-dark);
+        }
+        
+        .btn-add-watchlist.active {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+        
+        .info-section {
+            padding: 80px 0;
+        }
+        
+        .info-label {
+            color: var(--accent-gold);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .info-value {
+            color: var(--white);
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+        
+        .synopsis-text {
+            color: var(--light-grey);
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .cast-card-small {
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .cast-card-small:hover {
+            transform: translateY(-10px);
+        }
+        
+        .cast-image-small {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid var(--accent-gold);
+            transition: var(--transition);
+        }
+        
+        .cast-card-small:hover .cast-image-small {
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        .cast-name-small {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .cast-character {
+            color: var(--light-grey);
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 300px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .award-item {
+            background: var(--secondary-dark);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid var(--accent-gold);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        .award-item:hover {
+            transform: translateX(10px);
+            border-color: var(--accent-blue);
+        }
+        
+        .related-movie-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 350px;
+            transition: var(--transition);
+        }
+        
+        .related-movie-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+        
+        .related-movie-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .related-movie-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.95), transparent);
+            padding: 20px;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .share-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .share-btn.facebook { background: #1877f2; }
+        .share-btn.twitter { background: #1da1f2; }
+        .share-btn.whatsapp { background: #25d366; }
+        .share-btn.linkedin { background: #0a66c2; }
+        
+        .share-btn:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="../index.html">
+                <span class="brand-text">CineMagic</span>
+                <span class="brand-subtitle">PRODUCTIONS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="movies.html">Movies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="series.html">Series</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cast.html">Cast & Crew</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Movie Hero Section -->
+    <section class="movie-hero" id="movieHero">
+        <div class="movie-hero-content">
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-lg-3 col-md-4 mb-4 mb-md-0" data-aos="fade-right">
+                        <div class="movie-poster-container">
+                            <img id="moviePoster" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8" data-aos="fade-left">
+                        <h1 class="movie-title-main" id="movieTitle"></h1>
+                        <p class="movie-tagline" id="movieTagline"></p>
+                        
+                        <div class="movie-badges" id="movieBadges"></div>
+                        
+                        <div class="rating-stars" id="movieRating"></div>
+                        
+                        <div class="action-buttons">
+                            <button class="btn-watch-trailer" id="watchTrailerBtn">
+                                <i class="fas fa-play"></i> Watch Trailer
+                            </button>
+                            <button class="btn-add-watchlist" id="watchlistBtn">
+                                <i class="fas fa-heart"></i> <span id="watchlistText">Add to Watchlist</span>
+                            </button>
+                        </div>
+                        
+                        <div class="share-buttons">
+                            <a href="#" class="share-btn facebook" title="Share on Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="share-btn twitter" title="Share on Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="share-btn whatsapp" title="Share on WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="share-btn linkedin" title="Share on LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movie Information -->
+    <section class="info-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="section-header mb-4">
+                        <span class="section-subtitle">The Story</span>
+                        <h2 class="section-title">Synopsis</h2>
+                        <div class="section-divider"></div>
+                    </div>
+                    <p class="synopsis-text" id="movieSynopsis"></p>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-label">Director</div>
+                    <div class="info-value" id="movieDirector"></div>
+                    
+                    <div class="info-label">Producer</div>
+                    <div class="info-value" id="movieProducer"></div>
+                    
+                    <div class="info-label">Music</div>
+                    <div class="info-value" id="movieMusic"></div>
+                    
+                    <div class="info-label">Language</div>
+                    <div class="info-value" id="movieLanguage"></div>
+                    
+                    <div class="info-label">Release Date</div>
+                    <div class="info-value" id="movieRelease"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cast Section -->
+    <section class="section" style="background: var(--secondary-dark);">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">The Team</span>
+                <h2 class="section-title">Cast & Crew</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="swiper castSwiper" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper" id="castContainer"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Behind the Scenes Gallery -->
+    <section class="section" id="gallerySection" style="display: none;">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Exclusive</span>
+                <h2 class="section-title">Behind the Scenes</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="row g-4" id="galleryContainer"></div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="section" id="awardsSection" style="background: var(--secondary-dark); display: none;">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Recognition</span>
+                <h2 class="section-title">Awards & Achievements</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                    <div id="awardsContainer"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Movies -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">More to Explore</span>
+                <h2 class="section-title">You May Also Like</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="row g-4" id="relatedMovies"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand mb-3">
+                        <span class="brand-text">CineMagic</span>
+                        <span class="brand-subtitle d-block">PRODUCTIONS</span>
+                    </div>
+                    <p class="footer-text">Creating cinematic masterpieces that inspire, entertain, and leave lasting impressions.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <p class="text-center text-md-end footer-text">&copy; 2024 CineMagic Productions. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Trailer Modal -->
+    <div class="modal fade" id="trailerModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Movie Trailer</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="trailerIframe" src="" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        // Load all movies data from JSON
+        let allMoviesData = [];
+        
+        // Fetch movies data
+        async function loadMoviesData() {
+            try {
+                const response = await fetch('../data/movies.json');
+                const data = await response.json();
+                allMoviesData = data.movies;
+                return allMoviesData;
+            } catch (error) {
+                console.error('Error loading movies data:', error);
+                // Fallback to inline data if JSON fails
+                allMoviesData = [
+                    {id: 1, title: "Eternal Echo", tagline: "Some memories never fade", poster: "https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=400", backdrop: "https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=1200", trailer: "dQw4w9WgXcQ", genre: ["Drama", "Mystery"], year: 2024, duration: "2h 18m", rating: 4.5, language: "English", status: "Released", synopsis: "A psychological thriller that explores the depths of memory and consciousness. When a renowned psychologist begins experiencing vivid flashbacks of events that never happened, she must unravel the mystery before losing herself completely.", director: "Sarah Chen", producer: "David Kim", music: "Thomas Anderson", cast: [{name: "Emma Watson", character: "Dr. Sarah Mitchell", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200"}, {name: "Michael Torres", character: "Detective James Reed", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"}], gallery: ["https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600"], awards: ["Best Picture - International Film Awards 2024"], releaseDate: "March 15, 2024"}
+                ];
+                return allMoviesData;
+            }
+        }
+        
+        // Get movie ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieId = parseInt(urlParams.get('id')) || 1;
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async function() {
+            AOS.init({duration: 1000, once: true});
+            await loadMoviesData();
+            loadMovieDetails();
+            initScrollEffects();
+            initThemeToggle();
+        });
+        
+        function loadMovieDetails() {
+            const movie = allMoviesData.find(m => m.id === movieId);
+            
+            if (!movie) {
+                document.querySelector('.container').innerHTML = `
+                    <div class="text-center py-5">
+                        <h2 style="color: var(--white);">Movie not found</h2>
+                        <p style="color: var(--light-grey);">The movie you're looking for doesn't exist.</p>
+                        <a href="movies.html" class="btn btn-primary mt-3">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Movies
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+            
+            document.getElementById('movieHero').style.backgroundImage = `url(${movie.backdrop})`;
+            document.getElementById('moviePoster').src = movie.poster;
+            document.getElementById('moviePoster').alt = movie.title;
+            document.getElementById('movieTitle').textContent = movie.title;
+            document.getElementById('movieTagline').textContent = movie.tagline;
+            
+            document.getElementById('movieBadges').innerHTML = `
+                ${movie.genre.map(g => `<span class="badge bg-secondary">${g}</span>`).join('')}
+                <span class="badge bg-warning text-dark">${movie.duration}</span>
+                <span class="badge ${movie.status === 'Released' ? 'bg-success' : 'bg-info'}">${movie.status}</span>
+            `;
+            
+            const fullStars = Math.floor(movie.rating);
+            const emptyStars = 5 - fullStars;
+            document.getElementById('movieRating').innerHTML = 
+                '★'.repeat(fullStars) + '☆'.repeat(emptyStars) +
+                ` <span style="font-size: 18px; margin-left: 10px;">${movie.rating}/5</span>`;
+            
+            document.getElementById('movieSynopsis').textContent = movie.synopsis;
+            document.getElementById('movieDirector').textContent = movie.director;
+            document.getElementById('movieProducer').textContent = movie.producer;
+            document.getElementById('movieMusic').textContent = movie.music;
+            document.getElementById('movieLanguage').textContent = movie.language;
+            document.getElementById('movieRelease').textContent = movie.releaseDate;
+            
+            if (movie.cast && movie.cast.length > 0) {
+                document.getElementById('castContainer').innerHTML = movie.cast.map(member => `
+                    <div class="swiper-slide">
+                        <div class="cast-card-small">
+                            <img src="${member.image}" alt="${member.name}" class="cast-image-small">
+                            <div class="cast-name-small">${member.name}</div>
+                            <div class="cast-character">as ${member.character}</div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                new Swiper('.castSwiper', {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                    navigation: {nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev'},
+                    breakpoints: {640: {slidesPerView: 3}, 768: {slidesPerView: 4}, 1024: {slidesPerView: 6}}
+                });
+            }
+            
+            if (movie.gallery && movie.gallery.length > 0) {
+                document.getElementById('gallerySection').style.display = 'block';
+                document.getElementById('galleryContainer').innerHTML = movie.gallery.map((img, i) => `
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${i * 100}">
+                        <a href="${img}" class="glightbox gallery-item">
+                            <img src="${img}" alt="Behind the scenes ${i + 1}">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus" style="font-size: 40px; color: var(--accent-gold);"></i>
+                            </div>
+                        </a>
+                    </div>
+                `).join('');
+                GLightbox({selector: '.glightbox'});
+            }
+            
+            if (movie.awards && movie.awards.length > 0) {
+                document.getElementById('awardsSection').style.display = 'block';
+                document.getElementById('awardsContainer').innerHTML = movie.awards.map(award => `
+                    <div class="award-item" data-aos="fade-left">
+                        <i class="fas fa-trophy" style="color: var(--accent-gold); margin-right: 15px;"></i>
+                        <span style="color: var(--white);">${award}</span>
+                    </div>
+                `).join('');
+            }
+            
+            const relatedMovies = allMoviesData
+                .filter(m => m.id !== movie.id && m.genre.some(g => movie.genre.includes(g)))
+                .slice(0, 3);
+            
+            if (relatedMovies.length > 0) {
+                document.getElementById('relatedMovies').innerHTML = relatedMovies.map((m, i) => `
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${i * 100}">
+                        <div class="related-movie-card" onclick="window.location.href='movie-detail.html?id=${m.id}'">
+                            <img src="${m.poster}" alt="${m.title}">
+                            <div class="related-movie-overlay">
+                                <h5 style="color: var(--white); margin: 0;">${m.title}</h5>
+                                <p style="color: var(--accent-gold); margin: 5px 0 0 0; font-size: 14px;">
+                                    ${m.genre.join(', ')} • ${m.year}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            updateWatchlistButton();
+            document.getElementById('watchlistBtn').addEventListener('click', toggleWatchlist);
+            document.getElementById('watchTrailerBtn').addEventListener('click', () => openTrailer(movie.trailer));
+        }
+        
+        function toggleWatchlist() {
+            let watchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
+            if (watchlist.includes(parseInt(movieId))) {
+                watchlist = watchlist.filter(id => id !== parseInt(movieId));
+            } else {
+                watchlist.push(parseInt(movieId));
+            }
+            localStorage.setItem('watchlist', JSON.stringify(watchlist));
+            updateWatchlistButton();
+        }
+        
+        function updateWatchlistButton() {
+            const watchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
+            const btn = document.getElementById('watchlistBtn');
+            const text = document.getElementById('watchlistText');
+            if (watchlist.includes(parseInt(movieId))) {
+                btn.classList.add('active');
+                text.textContent = 'In Watchlist';
+            } else {
+                btn.classList.remove('active');
+                text.textContent = 'Add to Watchlist';
+            }
+        }
+        
+        function openTrailer(videoId) {
+            const modal = new bootstrap.Modal(document.getElementById('trailerModal'));
+            document.getElementById('trailerIframe').src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            modal.show();
+            document.getElementById('trailerModal').addEventListener('hidden.bs.modal', () => {
+                document.getElementById('trailerIframe').src = '';
+            });
+        }
+        
+        function initScrollEffects() {
+            const nav = document.getElementById('mainNav');
+            const scrollToTop = document.getElementById('scrollToTop');
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('scrolled', window.scrollY > 100);
+                scrollToTop.classList.toggle('visible', window.scrollY > 300);
+            });
+            scrollToTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+        }
+        
+        function initThemeToggle() {
+            const toggle = document.getElementById('themeToggle');
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                toggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            toggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                const newTheme = current === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            });
+        }
+    </script>
+</body>
+</html>

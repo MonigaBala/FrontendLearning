@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | CineMagic Productions</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- <script src="https://cdn.tailwindcss.com"></script>-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)),
+                        url('https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=1200') center/cover;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .job-filters {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .job-filter-btn {
+            padding: 12px 30px;
+            background: var(--secondary-dark);
+            border: 2px solid var(--dark-grey);
+            color: var(--light-grey);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .job-filter-btn:hover,
+        .job-filter-btn.active {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+        
+        .job-card {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid var(--dark-grey);
+            transition: var(--transition);
+            cursor: pointer;
+            height: 100%;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+        }
+        
+        .job-title {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+        
+        .job-department {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--accent-gold);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--light-grey);
+            font-size: 14px;
+        }
+        
+        .job-meta-item i {
+            color: var(--accent-gold);
+        }
+        
+        .job-description {
+            color: var(--light-grey);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .job-requirements {
+            margin-bottom: 20px;
+        }
+        
+        .job-requirements h4 {
+            color: var(--white);
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .job-requirements ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .job-requirements li {
+            color: var(--light-grey);
+            padding: 5px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .job-requirements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+        
+        .apply-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .apply-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .application-form {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid var(--dark-grey);
+        }
+        
+        .form-label {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .form-control,
+        .form-select {
+            background: var(--dark-grey);
+            border: 1px solid var(--dark-grey);
+            color: var(--white);
+            padding: 12px;
+            border-radius: 8px;
+        }
+        
+        .form-control:focus,
+        .form-select:focus {
+            background: var(--dark-grey);
+            border-color: var(--accent-gold);
+            color: var(--white);
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+        }
+        
+        .form-control::placeholder {
+            color: var(--light-grey);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+        }
+        
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-upload-label {
+            display: block;
+            padding: 30px;
+            background: var(--dark-grey);
+            border: 2px dashed var(--light-grey);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .file-upload-label:hover {
+            border-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .file-upload-icon {
+            font-size: 40px;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+        
+        .benefits-section {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            padding: 40px;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .benefit-icon {
+            font-size: 50px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-title {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-desc {
+            color: var(--light-grey);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="../index.html">
+                <span class="brand-text">CineMagic</span>
+                <span class="brand-subtitle">PRODUCTIONS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="movies.html">Movies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="watchlist.html">Watchlist</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cast.html">Cast & Crew</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="careers.html">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="hero-title" data-aos="fade-up">Join Our Team</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Be part of something extraordinary
+            </p>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Why CineMagic</span>
+                <h2 class="section-title">Benefits & Perks</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="benefits-section" data-aos="fade-up" data-aos-delay="200">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="benefit-item">
+                            <i class="fas fa-briefcase benefit-icon"></i>
+                            <div class="benefit-title">Growth Opportunities</div>
+                            <p class="benefit-desc">Career advancement and skill development programs</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="benefit-item">
+                            <i class="fas fa-heart benefit-icon"></i>
+                            <div class="benefit-title">Health & Wellness</div>
+                            <p class="benefit-desc">Comprehensive health insurance and wellness programs</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="benefit-item">
+                            <i class="fas fa-balance-scale benefit-icon"></i>
+                            <div class="benefit-title">Work-Life Balance</div>
+                            <p class="benefit-desc">Flexible schedules and generous time off</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="benefit-item">
+                            <i class="fas fa-users benefit-icon"></i>
+                            <div class="benefit-title">Creative Environment</div>
+                            <p class="benefit-desc">Collaborate with talented industry professionals</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Filters -->
+    <section class="py-3">
+        <div class="container">
+            <div class="job-filters" data-aos="fade-up">
+                <button class="job-filter-btn active" data-department="all">All Positions</button>
+                <button class="job-filter-btn" data-department="production">Production</button>
+                <button class="job-filter-btn" data-department="technical">Technical</button>
+                <button class="job-filter-btn" data-department="creative">Creative</button>
+                <button class="job-filter-btn" data-department="business">Business</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Listings -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4" id="jobListings"></div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="section py-5" style="background: var(--secondary-dark);">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Apply Now</span>
+                <h2 class="section-title">Submit Your Application</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                    <form class="application-form" id="applicationForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" required placeholder="John Doe">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email *</label>
+                                <input type="email" class="form-control" required placeholder="john@example.com">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone *</label>
+                                <input type="tel" class="form-control" required placeholder="+1 (555) 000-0000">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Position *</label>
+                                <select class="form-select" required>
+                                    <option value="">Select Position</option>
+                                    <option>Film Director</option>
+                                    <option>Cinematographer</option>
+                                    <option>Production Manager</option>
+                                    <option>VFX Artist</option>
+                                    <option>Sound Engineer</option>
+                                    <option>Marketing Manager</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Portfolio URL (Optional)</label>
+                                <input type="url" class="form-control" placeholder="https://yourportfolio.com">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Cover Letter *</label>
+                                <textarea class="form-control" required placeholder="Tell us why you'd be a great fit..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Resume / CV *</label>
+                                <div class="file-upload">
+                                    <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
+                                    <label for="resume" class="file-upload-label">
+                                        <i class="fas fa-cloud-upload-alt file-upload-icon"></i>
+                                        <div style="color: var(--white); font-weight: 600; margin-bottom: 5px;">Upload Resume</div>
+                                        <div style="color: var(--light-grey); font-size: 14px;">PDF or DOC (Max 5MB)</div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="apply-btn">
+                                    <i class="fas fa-paper-plane me-2"></i> Submit Application
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand mb-3">
+                        <span class="brand-text">CineMagic</span>
+                        <span class="brand-subtitle d-block">PRODUCTIONS</span>
+                    </div>
+                    <p class="footer-text">Creating cinematic masterpieces that inspire, entertain, and leave lasting impressions.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <p class="text-center text-md-end footer-text">&copy; 2024 CineMagic Productions. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        const jobsData = [
+            {
+                id: 1, title: 'Film Director', department: 'creative', location: 'Los Angeles, CA', type: 'Full-time',
+                description: 'Lead creative vision and oversee all aspects of film production from pre-production to post.',
+                requirements: ['10+ years directing experience', 'Strong portfolio', 'Leadership skills', 'Vision for storytelling']
+            },
+            {
+                id: 2, title: 'Cinematographer', department: 'technical', location: 'New York, NY', type: 'Full-time',
+                description: 'Create stunning visual narratives through expert camera work and lighting design.',
+                requirements: ['7+ years experience', 'Knowledge of camera systems', 'Artistic eye', 'Technical expertise']
+            },
+            {
+                id: 3, title: 'Production Manager', department: 'production', location: 'London, UK', type: 'Full-time',
+                description: 'Manage production schedules, budgets, and coordinate between departments.',
+                requirements: ['5+ years in production', 'Strong organizational skills', 'Budget management', 'Team leadership']
+            },
+            {
+                id: 4, title: 'VFX Artist', department: 'technical', location: 'Remote', type: 'Contract',
+                description: 'Create photorealistic visual effects and CGI elements for feature films.',
+                requirements: ['Expert in Maya/Houdini', '3+ years VFX experience', 'Strong portfolio', 'Attention to detail']
+            },
+            {
+                id: 5, title: 'Sound Engineer', department: 'technical', location: 'Los Angeles, CA', type: 'Full-time',
+                description: 'Design and mix sound for films, ensuring highest audio quality.',
+                requirements: ['Pro Tools expert', '5+ years experience', 'Creative sound design', 'Technical knowledge']
+            },
+            {
+                id: 6, title: 'Marketing Manager', department: 'business', location: 'New York, NY', type: 'Full-time',
+                description: 'Develop and execute marketing strategies for film releases.',
+                requirements: ['Entertainment marketing experience', 'Digital marketing skills', 'Strategic thinking', 'Data-driven']
+            }
+        ];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({duration: 1000, once: true});
+            renderJobs(jobsData);
+            initFilters();
+            initForm();
+            initScrollEffects();
+            initThemeToggle();
+        });
+        
+        function renderJobs(jobs) {
+            const container = document.getElementById('jobListings');
+            container.innerHTML = jobs.map((job, i) => `
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="${i * 50}">
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div>
+                                <h3 class="job-title">${job.title}</h3>
+                                <span class="job-department">${job.department}</span>
+                            </div>
+                        </div>
+                        <div class="job-meta">
+                            <div class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i> ${job.location}
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-clock"></i> ${job.type}
+                            </div>
+                        </div>
+                        <p class="job-description">${job.description}</p>
+                        <div class="job-requirements">
+                            <h4>Requirements:</h4>
+                            <ul>
+                                ${job.requirements.map(req => `<li>${req}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <button class="apply-btn" onclick="scrollToForm()">Apply Now</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function initFilters() {
+            document.querySelectorAll('.job-filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.job-filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const department = this.dataset.department;
+                    const filtered = department === 'all' 
+                        ? jobsData 
+                        : jobsData.filter(job => job.department === department);
+                    
+                    renderJobs(filtered);
+                });
+            });
+        }
+        
+        function scrollToForm() {
+            document.getElementById('applicationForm').scrollIntoView({behavior: 'smooth', block: 'center'});
+        }
+        
+        function initForm() {
+            document.getElementById('applicationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Application submitted successfully! We will review your application and get back to you soon.');
+                this.reset();
+            });
+            
+            document.getElementById('resume').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const label = this.nextElementSibling;
+                    label.innerHTML = `
+                        <i class="fas fa-check-circle file-upload-icon"></i>
+                        <div style="color: var(--accent-gold); font-weight: 600;">${file.name}</div>
+                        <div style="color: var(--light-grey); font-size: 14px;">Click to change file</div>
+                    `;
+                }
+            });
+        }
+        
+        function initScrollEffects() {
+            const nav = document.getElementById('mainNav');
+            const scrollToTop = document.getElementById('scrollToTop');
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('scrolled', window.scrollY > 100);
+                scrollToTop.classList.toggle('visible', window.scrollY > 300);
+            });
+            scrollToTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+        }
+        
+        function initThemeToggle() {
+            const toggle = document.getElementById('themeToggle');
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                toggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            toggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                const newTheme = current === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            });
+        }
+    </script>
+</body>
+</html>

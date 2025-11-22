@@ -1,378 +1,848 @@
-[
-  {
-    "id": 1,
-    "title": "Inception",
-    "tagline": "Your mind is the scene of the crime",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=Inception+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=Inception+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Sci-Fi", "Thriller"],
-    "year": 2010,
-    "duration": "2h 28m",
-    "rating": 4.8,
-    "language": "English",
-    "status": "Released",
-    "synopsis": "A skilled thief is offered a chance to have his past crimes forgiven if he can successfully perform inception on a target's subconscious.",
-    "director": "Christopher Nolan",
-    "producer": "Emma Thomas",
-    "music": "Hans Zimmer",
-    "cast": [
-      {"name": "Leonardo DiCaprio", "character": "Dom Cobb", "image": "https://dummyimage.com/200/000/fff&text=DiCaprio"},
-      {"name": "Joseph Gordon-Levitt", "character": "Arthur", "image": "https://dummyimage.com/200/000/fff&text=Gordon-Levitt"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2010-07-16"
-  },
-  {
-    "id": 2,
-    "title": "KGF: Chapter 2",
-    "tagline": "The saga continues",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=KGF+2+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=KGF+2+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Action", "Crime", "Drama"],
-    "year": 2022,
-    "duration": "2h 46m",
-    "rating": 4.7,
-    "language": "Hindi",
-    "status": "Released",
-    "synopsis": "Rocky returns to claim his dominion and faces foes who conspire for his downfall amidst the blood-soaked land of Kolar Gold Fields.",
-    "director": "Prashanth Neel",
-    "producer": "Vijay Kiragandur",
-    "music": "Ravi Basrur",
-    "cast": [
-      {"name": "Yash", "character": "Rocky", "image": "https://dummyimage.com/200/000/fff&text=Yash"},
-      {"name": "Srinidhi Shetty", "character": "Reena", "image": "https://dummyimage.com/200/000/fff&text=Srinidhi+Shetty"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2022-04-14"
-  },
-  {
-    "id": 3,
-    "title": "Ponniyin Selvan: I",
-    "tagline": "An empire's story is just the beginning",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=PS+I+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=PS+I+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Historical", "Drama"],
-    "year": 2022,
-    "duration": "2h 50m",
-    "rating": 4.4,
-    "language": "Tamil",
-    "status": "Released",
-    "synopsis": "A tale of royal intrigue, ambition, and power in the Chola dynasty.",
-    "director": "Mani Ratnam",
-    "producer": "Subaskaran Allirajah",
-    "music": "A. R. Rahman",
-    "cast": [
-      {"name": "Vikram", "character": "Aditya Karikalan", "image": "https://dummyimage.com/200/000/fff&text=Vikram"},
-      {"name": "Trisha", "character": "Nandini", "image": "https://dummyimage.com/200/000/fff&text=Trisha"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2022-09-30"
-  },
-  {
-    "id": 4,
-    "title": "3 Idiots",
-    "tagline": "All is well",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=3+Idiots+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=3+Idiots+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Comedy", "Drama"],
-    "year": 2009,
-    "duration": "2h 50m",
-    "rating": 4.7,
-    "language": "Hindi",
-    "status": "Released",
-    "synopsis": "Two friends are searching for their lost college buddy. On this journey, they revisit their college days and learn how pressure among friends can lead to tragic consequences.",
-    "director": "Rajkumar Hirani",
-    "producer": "Vidhu Vinod Chopra",
-    "music": "Shantanu Moitra",
-    "cast": [
-      {"name": "Aamir Khan", "character": "Rancho", "image": "https://dummyimage.com/200/000/fff&text=Aamir+Khan"},
-      {"name": "R. Madhavan", "character": "Farhan", "image": "https://dummyimage.com/200/000/fff&text=Madhavan"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2009-12-25"
-  },
-  {
-    "id": 5,
-    "title": "Drishyam",
-    "tagline": "Every picture has two sides",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=Drishyam+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=Drishyam+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Thriller", "Drama"],
-    "year": 2013,
-    "duration": "2h 20m",
-    "rating": 4.5,
-    "language": "Malayalam",
-    "status": "Released",
-    "synopsis": "A man goes to great lengths to protect his family after they get involved in a crime.",
-    "director": "Jeethu Joseph",
-    "producer": "Aashirvad Cinemas",
-    "music": "Murali Gopy",
-    "cast": [
-      {"name": "Mohanlal", "character": "Georgekutty", "image": "https://dummyimage.com/200/000/fff&text=Mohanlal"},
-      {"name": "Meena", "character": "Ragini", "image": "https://dummyimage.com/200/000/fff&text=Meena"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2013-02-08"
-  },
-  {
-    "id": 6,
-    "title": "Baahubali: The Beginning",
-    "tagline": "The journey begins",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=Baahubali+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=Baahubali+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Action", "Drama"],
-    "year": 2015,
-    "duration": "2h 39m",
-    "rating": 4.6,
-    "language": "Telugu",
-    "status": "Released",
-    "synopsis": "A young man sets out to discover the truth about his royal lineage amidst war and betrayal.",
-    "director": "S.S. Rajamouli",
-    "producer": "Shobu Yarlagadda",
-    "music": "M.M. Keeravani",
-    "cast": [
-      {"name": "Prabhas", "character": "Amarendra Baahubali", "image": "https://dummyimage.com/200/000/fff&text=Prabhas"},
-      {"name": "Rana Daggubati", "character": "Bhallaladeva", "image": "https://dummyimage.com/200/000/fff&text=Rana+Daggubati"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2015-07-10"
-  },
-
-  {
-    "id": 7,
-    "title": "Master",
-    "tagline": "Teacher of destiny",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=Master+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=Master+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Action", "Drama"],
-    "year": 2021,
-    "duration": "2h 54m",
-    "rating": 4.3,
-    "language": "Tamil",
-    "status": "Released",
-    "synopsis": "A professor is sent to a juvenile school to reform students but faces a deadly gangster who manipulates them.",
-    "director": "Lokesh Kanagaraj",
-    "producer": "Kalaipuli S. Thanu",
-    "music": "Anirudh Ravichander",
-    "cast": [
-      {"name": "Vijay", "character": "JD", "image": "https://dummyimage.com/200/000/fff&text=Vijay"},
-      {"name": "Vijay Sethupathi", "character": "Bhavani", "image": "https://dummyimage.com/200/000/fff&text=Vijay+Sethupathi"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2021-01-13"
-  },
-  {
-    "id": 8,
-    "title": "RRR",
-    "tagline": "Rise of heroes",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=RRR+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=RRR+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Action", "Drama", "Historical"],
-    "year": 2022,
-    "duration": "3h 10m",
-    "rating": 4.6,
-    "language": "Telugu",
-    "status": "Released",
-    "synopsis": "Two freedom fighters in pre-independent India unite to fight against the British colonial rulers.",
-    "director": "S.S. Rajamouli",
-    "producer": "D.V.V. Danayya",
-    "music": "M.M. Keeravani",
-    "cast": [
-      {"name": "N.T. Rama Rao Jr.", "character": "Komaram Bheem", "image": "https://dummyimage.com/200/000/fff&text=Jr+NTR"},
-      {"name": "Ram Charan", "character": "Alluri Sitarama Raju", "image": "https://dummyimage.com/200/000/fff&text=Ram+Charan"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2022-03-25"
-  },
-  {
-    "id": 9,
-    "title": "Drishyam 2",
-    "tagline": "The suspense continues",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=Drishyam2+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=Drishyam2+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Thriller", "Drama"],
-    "year": 2021,
-    "duration": "2h 30m",
-    "rating": 4.5,
-    "language": "Malayalam",
-    "status": "Released",
-    "synopsis": "The story continues where Georgekutty tries to protect his family again while old secrets resurface.",
-    "director": "Jeethu Joseph",
-    "producer": "Aashirvad Cinemas",
-    "music": "Anil Johnson",
-    "cast": [
-      {"name": "Mohanlal", "character": "Georgekutty", "image": "https://dummyimage.com/200/000/fff&text=Mohanlal"},
-      {"name": "Meena", "character": "Ragini", "image": "https://dummyimage.com/200/000/fff&text=Meena"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2021-02-19"
-  },
-  {
-    "id": 10,
-    "title": "Pushpa: The Rise",
-    "tagline": "Rise of the red sandalwood man",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=Pushpa+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=Pushpa+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Action", "Drama", "Thriller"],
-    "year": 2021,
-    "duration": "2h 35m",
-    "rating": 4.4,
-    "language": "Telugu",
-    "status": "Released",
-    "synopsis": "A laborer rises through the ranks of the red sandalwood smuggling network, facing betrayal and danger.",
-    "director": "Sukumar",
-    "producer": "Mythri Movie Makers",
-    "music": "Devi Sri Prasad",
-    "cast": [
-      {"name": "Allu Arjun", "character": "Pushpa Raj", "image": "https://dummyimage.com/200/000/fff&text=Allu+Arjun"},
-      {"name": "Rashmika Mandanna", "character": "Srivalli", "image": "https://dummyimage.com/200/000/fff&text=Rashmika"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2021-12-17"
-  },
-  {
-    "id": 11,
-    "title": "Jai Bhim",
-    "tagline": "Justice for all",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=Jai+Bhim+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=Jai+Bhim+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Drama", "Legal"],
-    "year": 2021,
-    "duration": "2h 40m",
-    "rating": 4.8,
-    "language": "Tamil",
-    "status": "Released",
-    "synopsis": "Based on real events, a lawyer fights for the oppressed against systemic injustice in Tamil Nadu.",
-    "director": "T.J. Gnanavel",
-    "producer": "Suriya",
-    "music": "Sean Roldan",
-    "cast": [
-      {"name": "Suriya", "character": "Adv. Chandru", "image": "https://dummyimage.com/200/000/fff&text=Suriya"},
-      {"name": "Lijomol Jose", "character": "Rajakannu's Wife", "image": "https://dummyimage.com/200/000/fff&text=Lijomol+Jose"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2021-11-02"
-  },
-  {
-    "id": 12,
-    "title": "Vikram",
-    "tagline": "One man. Many identities",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=Vikram+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=Vikram+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Action", "Thriller"],
-    "year": 2022,
-    "duration": "2h 50m",
-    "rating": 4.5,
-    "language": "Tamil",
-    "status": "Released",
-    "synopsis": "An undercover operation uncovers a criminal mastermind who challenges the authorities at every step.",
-    "director": "Lokesh Kanagaraj",
-    "producer": "Raaj Kamal Films International",
-    "music": "Anirudh Ravichander",
-    "cast": [
-      {"name": "Kamal Haasan", "character": "Vikram", "image": "https://dummyimage.com/200/000/fff&text=Kamal+Haasan"},
-      {"name": "Fahadh Faasil", "character": "Sandhanam", "image": "https://dummyimage.com/200/000/fff&text=Fahadh+Faasil"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2022-06-03"
-  },
-  {
-    "id": 13,
-    "title": "Spider-Man: No Way Home",
-    "tagline": "Multiverse unleashed",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=Spider-Man+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=Spider-Man+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Action", "Adventure", "Sci-Fi"],
-    "year": 2021,
-    "duration": "2h 28m",
-    "rating": 4.7,
-    "language": "English",
-    "status": "Released",
-    "synopsis": "Peter Parker's secret identity is exposed, and he seeks help from Doctor Strange to fix reality.",
-    "director": "Jon Watts",
-    "producer": "Kevin Feige",
-    "music": "Michael Giacchino",
-    "cast": [
-      {"name": "Tom Holland", "character": "Peter Parker", "image": "https://dummyimage.com/200/000/fff&text=Tom+Holland"},
-      {"name": "Zendaya", "character": "MJ", "image": "https://dummyimage.com/200/000/fff&text=Zendaya"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2021-12-17"
-  },
-  {
-    "id": 14,
-    "title": "Andhaghaaram",
-    "tagline": "Darkness connects all",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=Andhaghaaram+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=Andhaghaaram+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Thriller", "Horror"],
-    "year": 2020,
-    "duration": "2h 5m",
-    "rating": 4.1,
-    "language": "Tamil",
-    "status": "Released",
-    "synopsis": "Three lives are mysteriously connected, revealing terrifying secrets in the dark.",
-    "director": "Vivek",
-    "producer": "AP International",
-    "music": "Pradeep Kumar",
-    "cast": [
-      {"name": "Vinoth", "character": "James", "image": "https://dummyimage.com/200/000/fff&text=Vinoth"},
-      {"name": "Vishnu", "character": "Hari", "image": "https://dummyimage.com/200/000/fff&text=Vishnu"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2020-03-20"
-  },
-  {
-    "id": 15,
-    "title": "Bahubali 2: The Conclusion",
-    "tagline": "The legend ends",
-    "poster": "https://dummyimage.com/400x600/000/fff&text=Baahubali2+Poster",
-    "backdrop": "https://dummyimage.com/1200x600/000/fff&text=Baahubali2+Backdrop",
-    "trailer": "https://youtube.com/watch?v=dummy",
-    "genre": ["Action", "Drama", "Epic"],
-    "year": 2017,
-    "duration": "2h 44m",
-    "rating": 4.6,
-    "language": "Telugu",
-    "status": "Released",
-    "synopsis": "The war for the kingdom escalates as Amarendra Baahubali faces betrayal and revenge.",
-    "director": "S.S. Rajamouli",
-    "producer": "Shobu Yarlagadda",
-    "music": "M.M. Keeravani",
-    "cast": [
-      {"name": "Prabhas", "character": "Amarendra Baahubali", "image": "https://dummyimage.com/200/000/fff&text=Prabhas"},
-      {"name": "Anushka Shetty", "character": "Devasena", "image": "https://dummyimage.com/200/000/fff&text=Anushka+Shetty"}
-    ],
-    "gallery": [],
-    "awards": [],
-    "releaseDate": "2017-04-28"
-  }
-]
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Eternal Echo",
+      "tagline": "Some memories never fade",
+      "poster": "https://prod5.agileticketing.net/images/user/thestate_3895/eternalechoposter2.jpg",
+      "backdrop": "https://prod5.agileticketing.net/images/user/thestate_3895/eternalechoslide2.jpg",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Drama", "Mystery"],
+      "year": 2024,
+      "duration": "2h 18m",
+      "rating": 4.5,
+      "language": "English",
+      "status": "Released",
+      "synopsis": "A psychological thriller that explores the depths of memory and consciousness. When a renowned psychologist begins experiencing vivid flashbacks of events that never happened, she must unravel the mystery before losing herself completely. A haunting journey through the human mind that questions the very nature of reality.",
+      "director": "Sarah Chen",
+      "producer": "David Kim",
+      "music": "Thomas Anderson",
+      "cast": [
+        {"name": "Emma Watson", "character": "Dr. Sarah Mitchell", "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200"},
+        {"name": "Michael Torres", "character": "Detective James Reed", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+        {"name": "Lisa Park", "character": "Dr. Rachel Kim", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600",
+        "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600",
+        "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600"
+      ],
+      "awards": [
+        "Best Picture - International Film Awards 2024",
+        "Best Director - Golden Globe 2024",
+        "Best Actress - Academy Awards 2024"
+      ],
+      "releaseDate": "March 15, 2024"
+    },
+    {
+      "id": 2,
+      "title": "காதல் கண் கட்டுதே ",
+      "tagline": "அன்பு கடலைப் போல ஆழமானது",
+      "poster": "https://wallpapercave.com/wp/wp8495040.jpg",
+      "backdrop": "https://tamil.cdn.zeenews.com/tamil/sites/default/files/2016/10/26/109948-kadhal-kan-kattudhe.jpg",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Romance", "Drama"],
+      "year": 2024,
+      "duration": "2h 35m",
+      "rating": 4.7,
+      "language": "Tamil",
+      "status": "Released",
+      "synopsis": "A beautiful love story set against the backdrop of coastal Tamil Nadu. Two souls from different worlds meet and discover that love transcends all boundaries. With stunning visuals and soulful music, this film celebrates the power of true love.",
+      "director": "Vetrimaaran",
+      "producer": "Kalaipuli S. Thanu",
+      "music": "A.R. Rahman",
+      "cast": [
+        {"name": "Vijay Sethupathi", "character": "Arjun", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+        {"name": "Nayanthara", "character": "Meera", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"},
+        {"name": "Prakash Raj", "character": "Meera's Father", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600",
+        "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600"
+      ],
+      "awards": [
+        "Best Tamil Film - Filmfare Awards 2024",
+        "Best Music - Vijay Awards 2024"
+      ],
+      "releaseDate": "February 14, 2024"
+    },
+    {
+      "id": 3,
+      "title": "जंग का मैदान",
+      "tagline": "देश के लिए हर बलिदान छोटा है",
+      "poster": "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Action", "War"],
+      "year": 2024,
+      "duration": "2h 45m",
+      "rating": 4.8,
+      "language": "Hindi",
+      "status": "Released",
+      "synopsis": "Based on true events from the 1971 Indo-Pak war, this intense war drama follows a battalion of brave soldiers who defend their post against overwhelming odds. A tribute to the unsung heroes of our nation.",
+      "director": "Aditya Dhar",
+      "producer": "Ronnie Screwvala",
+      "music": "Pritam",
+      "cast": [
+        {"name": "Vicky Kaushal", "character": "Major Ravi Kumar", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Paresh Rawal", "character": "Colonel Singh", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=600"
+      ],
+      "awards": [
+        "Best Action Film - IIFA 2024",
+        "Best Actor - National Film Awards 2024"
+      ],
+      "releaseDate": "August 15, 2024"
+    },
+    {
+      "id": 4,
+      "title": "பொன்னியின் செல்வன்",
+      "tagline": "Ponniyin Selvan",
+      "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhatnoe6T6zbiURgbEXukMq5KnUFHVPYTzdw&s",
+      "backdrop": "https://cdn.wallpapersafari.com/71/99/ixFvhu.jpg",
+      "trailer": "https://www.youtube.com/watch?v=D4qAQYlgZQs&pp=ygUXcG9ubml5aW4gc2VsdmFuIHRyYWlsZXI%3D",
+      "genre": ["Thriller", "Crime"],
+      "year": 2024,
+      "duration": "2h 20m",
+      "rating": 4.6,
+      "language": "Telugu",
+      "status": "Released",
+      "synopsis": "An honest police officer battles corruption within the system while investigating a high-profile murder case. As he digs deeper, he uncovers a conspiracy that reaches the highest levels of power.",
+      "director": "Sukumar",
+      "producer": "Dil Raju",
+      "music": "Devi Sri Prasad",
+      "cast": [
+        {"name": "Mahesh Babu", "character": "IPS Arjun Reddy", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+        {"name": "Samantha Ruth Prabhu", "character": "Advocate Sanjana", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=600",
+        "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600"
+      ],
+      "awards": [
+        "Best Telugu Film - Nandi Awards 2024"
+      ],
+      "releaseDate": "April 20, 2024"
+    },
+    {
+      "id": 5,
+      "title": "The Godfathe",
+      "tagline": "Fear what you cannot see",
+      "poster": "https://m.media-amazon.com/images/I/81OTZtqXIIL._AC_UF894,1000_QL80_.jpg",
+      "backdrop": "https://www.hdwallpapers.in/download/al_pacino_marlon_brando_robert_de_niro_james_caan_diane_keaton_hd_the_godfather-1920x1080.jpg",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Horror", "Thriller"],
+      "year": 2023,
+      "duration": "1h 55m",
+      "rating": 4.2,
+      "language": "English",
+      "status": "Released",
+      "synopsis": "In the heart of a bustling metropolis, ancient urban legends begin manifesting in terrifying reality. A group of college students must uncover the dark truth behind these supernatural occurrences before they become the next victims.",
+      "director": "Marcus Johnson",
+      "producer": "Jennifer Lopez",
+      "music": "Hans Zimmer",
+      "cast": [
+        {"name": "Chris Evans", "character": "Mark Sullivan", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Zoe Martinez", "character": "Alex Rivera", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600"
+      ],
+      "awards": [
+        "Best Horror Film - Scream Awards 2023"
+      ],
+      "releaseDate": "October 31, 2023"
+    },
+    {
+      "id": 6,
+      "title": "സ്വപ്നം",
+      "tagline": "ഓരോ സ്വപ്നത്തിനും ഒരു കഥയുണ്ട്",
+      "poster": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Drama", "Family"],
+      "year": 2024,
+      "duration": "2h 10m",
+      "rating": 4.5,
+      "language": "Malayalam",
+      "status": "Released",
+      "synopsis": "A heartwarming tale of a young boy from rural Kerala who dreams of becoming a filmmaker. Against all odds and with his family's support, he embarks on a journey to make his dreams come true.",
+      "director": "Lijo Jose Pellissery",
+      "producer": "Listin Stephen",
+      "music": "Gopi Sundar",
+      "cast": [
+        {"name": "Fahadh Faasil", "character": "Ravi", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+        {"name": "Parvathy Thiruvothu", "character": "Maya", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600"
+      ],
+      "awards": [
+        "Best Malayalam Film - Kerala State Awards 2024"
+      ],
+      "releaseDate": "January 26, 2024"
+    },
+    {
+      "id": 7,
+      "title": "Beyond the Stars",
+      "tagline": "Discover what lies beyond",
+      "poster": "https://w0.peakpx.com/wallpaper/854/411/HD-wallpaper-star-trek-beyond-2016-movie-poster-star-trek-thumbnail.jpg",
+      "backdrop": "https://i.pinimg.com/736x/53/52/7d/53527dff4b67dbbff2ad2dbd328fb90e.jpg",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Sci-Fi", "Adventure"],
+      "year": 2025,
+      "duration": "2h 45m",
+      "rating": 4.8,
+      "language": "English",
+      "status": "Upcoming",
+      "synopsis": "Humanity's first interstellar voyage encounters the impossible when they discover ancient alien technology. A visionary epic that explores wonder and danger of reaching beyond our cosmic boundaries.",
+      "director": "Denis Villeneuve",
+      "producer": "Mary Parent",
+      "music": "Hans Zimmer",
+      "cast": [
+        {"name": "Ryan Gosling", "character": "Commander Jake Morrison", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Lupita Nyong'o", "character": "Dr. Maya Chen", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [],
+      "awards": [],
+      "releaseDate": "December 15, 2025"
+    },
+    {
+      "id": 8,
+      "title": "விக்ரம் வேதா 2",
+      "tagline": "நன்மை தீமை இடையே உள்ள பயணம்",
+      "poster": "https://m.media-amazon.com/images/M/MV5BN2U2YzA4ZTItODBjYy00ZmJmLThmODgtYTVjZGQ5ZmRlMGZhXkEyXkFqcGc@._V1_.jpg",
+      "backdrop": "https://i.ytimg.com/vi/5RKI9_B7tOg/maxresdefault.jpg",
+      "trailer":"https://youtu.be/eLucCWmf6V4?si=W58fJdLHGsDhA5lw",
+      "genre": ["Action", "Thriller"],
+      "year": 2025,
+      "duration": "2h 30m",
+      "rating": 4.7,
+      "language": "Tamil",
+      "status": "Upcoming",
+      "synopsis": "The epic cat-and-mouse game continues as the fearless cop and the cunning gangster face off once again. This time, the stakes are higher and the lines between right and wrong are blurred even further.",
+      "director": "Pushkar-Gayathri",
+      "producer": "Y NOT Studios",
+      "music": "Sam C.S.",
+      "cast": [
+        {"name": "Vijay Sethupathi", "character": "Vedha", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+        {"name": "Madhavan", "character": "Vikram", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"}
+      ],
+      "gallery": [],
+      "awards": [],
+      "releaseDate": "October 10, 2025"
+    },
+    {
+      "id": 9,
+      "title": "पठान की वापसी",
+      "tagline": "जब देश को जरूरत हो",
+      "poster": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Action", "Spy"],
+      "year": 2025,
+      "duration": "2h 40m",
+      "rating": 4.9,
+      "language": "Hindi",
+      "status": "Upcoming",
+      "synopsis": "India's most wanted agent returns for his most dangerous mission yet. Racing against time across continents, he must stop a global conspiracy that threatens world peace.",
+      "director": "Siddharth Anand",
+      "producer": "Aditya Chopra",
+      "music": "Vishal-Shekhar",
+      "cast": [
+        {"name": "Shah Rukh Khan", "character": "Pathaan", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Deepika Padukone", "character": "Rubina", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [],
+      "awards": [],
+      "releaseDate": "January 25, 2025"
+    },
+    {
+      "id": 10,
+      "title": "రాక్షస రాజ",
+      "tagline": "చీకటిలో ఉన్న రాజు",
+      "poster": "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Fantasy", "Action"],
+      "year": 2024,
+      "duration": "2h 55m",
+      "rating": 4.6,
+      "language": "Telugu",
+      "status": "Released",
+      "synopsis": "An epic fantasy tale set in ancient India where a cursed warrior must battle demons and his own darkness to save his kingdom. Stunning visuals and powerful storytelling create an unforgettable cinematic experience.",
+      "director": "S.S. Rajamouli",
+      "producer": "DVV Entertainments",
+      "music": "M.M. Keeravani",
+      "cast": [
+        {"name": "Prabhas", "character": "Vikramaditya", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Anushka Shetty", "character": "Chandrakala", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600"
+      ],
+      "awards": [
+        "Best VFX - SIIMA Awards 2024"
+      ],
+      "releaseDate": "May 9, 2024"
+    },
+    {
+      "id": 11,
+      "title": "Midnight Shadows",
+      "tagline": "When darkness falls, secrets awaken",
+      "poster": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1651093498i/60894295.jpg",
+      "backdrop": "https://c4.wallpaperflare.com/wallpaper/608/56/13/clouds-moon-night-shadows-wallpaper-preview.jpg",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Thriller", "Crime"],
+      "year": 2025,
+      "duration": "2h 15m",
+      "rating": 4.7,
+      "language": "English",
+      "status": "Upcoming",
+      "synopsis": "A brilliant detective haunted by his past must solve a series of cryptic murders that mirror crimes from decades ago. Time is running out in this pulse-pounding thriller.",
+      "director": "Christopher Nolan",
+      "producer": "Emma Thomas",
+      "music": "Ludwig Göransson",
+      "cast": [
+        {"name": "Oscar Isaac", "character": "Detective William Cross", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+        {"name": "Rebecca Ferguson", "character": "Agent Sarah Blake", "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200"}
+      ],
+      "gallery": [],
+      "awards": [],
+      "releaseDate": "June 20, 2025"
+    },
+    {
+      "id": 12,
+      "title": "മൊഹബത്ത്",
+      "tagline": "സ്നേഹത്തിന്റെ നിറങ്ങൾ",
+      "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Romance", "Musical"],
+      "year": 2024,
+      "duration": "2h 25m",
+      "rating": 4.4,
+      "language": "Malayalam",
+      "status": "Released",
+      "synopsis": "A musical romance that captures the vibrant colors of love in God's own country. Two musicians from different backgrounds find harmony in their shared passion for music.",
+      "director": "Anjali Menon",
+      "producer": "Shebin Backer",
+      "music": "Sushin Shyam",
+      "cast": [
+        {"name": "Dulquer Salmaan", "character": "Aditya", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+        {"name": "Manju Warrier", "character": "Zara", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600"
+      ],
+      "awards": [
+        "Best Music - Asianet Film Awards 2024"
+      ],
+      "releaseDate": "June 14, 2024"
+    },
+    {
+      "id": 13,
+      "title": "கொடும் கோடை",
+      "tagline": "வெயில் காலத்தின் கதை",
+      "poster": "https://mckenziehunter.com/wp-content/uploads/2020/05/abcover-midnight-shadows-pichi.jpg",
+      "backdrop": "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Drama", "Social"],
+      "year": 2024,
+      "duration": "2h 15m",
+      "rating": 4.3,
+      "language": "Tamil",
+      "status": "Released",
+      "synopsis": "A hard-hitting social drama about a village facing severe drought. The film explores human resilience, political apathy, and the struggle for survival in scorching summer.",
+      "director": "Pa. Ranjith",
+      "producer": "Studio Green",
+      "music": "Santhosh Narayanan",
+      "cast": [
+        {"name": "Dhanush", "character": "Murugan", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+        {"name": "Aishwarya Rajesh", "character": "Lakshmi", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=600"
+      ],
+      "awards": [
+        "Best Social Film - National Awards 2024"
+      ],
+      "releaseDate": "July 19, 2024"
+    },
+    {
+      "id": 14,
+      "title": "धूम 4",
+      "tagline": "रफ्तार का खेल",
+      "poster": "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Action", "Heist"],
+      "year": 2025,
+      "duration": "2h 30m",
+      "rating": 4.5,
+      "language": "Hindi",
+      "status": "Upcoming",
+      "synopsis": "The legendary Dhoom franchise returns with its most ambitious heist yet. High-octane action sequences across exotic locations as cops chase the world's most wanted thief.",
+      "director": "Sanjay Gadhvi",
+      "producer": "Aditya Chopra",
+      "music": "Pritam",
+      "cast": [
+        {"name": "Hrithik Roshan", "character": "Aryan", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Abhishek Bachchan", "character": "Jai Dixit", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"}
+      ],
+      "gallery": [],
+      "awards": [],
+      "releaseDate": "December 20, 2025"
+    },
+    {
+      "id": 15,
+      "title": "The Quantum Paradox",
+      "tagline": "Reality is just the beginning",
+      "poster": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Sci-Fi", "Mystery"],
+      "year": 2024,
+      "duration": "2h 28m",
+      "rating": 4.6,
+      "language": "English",
+      "status": "Released",
+      "synopsis": "A physicist discovers a way to manipulate quantum reality but realizes that changing the past creates dangerous paradoxes. A mind-bending journey through time and space.",
+      "director": "Alex Garland",
+      "producer": "DNA Films",
+      "music": "Ben Salisbury",
+      "cast": [
+        {"name": "Benedict Cumberbatch", "character": "Dr. Alan Shepard", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Tilda Swinton", "character": "Professor Elena Cross", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600"
+      ],
+      "awards": [
+        "Best Sci-Fi Film - Saturn Awards 2024"
+      ],
+      "releaseDate": "September 27, 2024"
+    },
+    {
+      "id": 16,
+      "title": "రాజు గారి గద్దె",
+      "tagline": "సింహాసనం కోసం యుద్ధం",
+      "poster": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Action", "Political"],
+      "year": 2024,
+      "duration": "2h 48m",
+      "rating": 4.7,
+      "language": "Telugu",
+      "status": "Released",
+      "synopsis": "A political action thriller about power, betrayal, and redemption. When a righteous leader is framed, he must fight back against a corrupt system to reclaim his throne.",
+      "director": "Trivikram Srinivas",
+      "producer": "Haarika & Hassine Creations",
+      "music": "Thaman S",
+      "cast": [
+        {"name": "Allu Arjun", "character": "Raghava Reddy", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+        {"name": "Pooja Hegde", "character": "Vasundhara", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600"
+      ],
+      "awards": [
+        "Best Action Choreography - SIIMA 2024"
+      ],
+      "releaseDate": "April 5, 2024"
+    },
+    {
+      "id": 17,
+      "title": "Love in Paris",
+      "tagline": "Where hearts find their way home",
+      "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Romance", "Drama"],
+      "year": 2025,
+      "duration": "1h 58m",
+      "rating": 4.3,
+      "language": "English",
+      "status": "Upcoming",
+      "synopsis": "Two strangers meet by chance on the streets of Paris and spend an enchanting day together. A heartwarming tale of connection, timing, and the magic of the City of Light.",
+      "director": "Richard Linklater",
+      "producer": "Sarah Green",
+      "music": "Alexandre Desplat",
+      "cast": [
+        {"name": "Timothée Chalamet", "character": "Antoine Dubois", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+        {"name": "Florence Pugh", "character": "Claire Thompson", "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200"}
+      ],
+      "gallery": [],
+      "awards": [],
+      "releaseDate": "February 14, 2025"
+    },
+    {
+      "id": 18,
+      "title": "കാലവർഷം",
+      "tagline": "മഴയുടെ മായാജാലം",
+      "poster": "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Drama", "Romance"],
+      "year": 2024,
+      "duration": "2h 18m",
+      "rating": 4.5,
+      "language": "Malayalam",
+      "status": "Released",
+      "synopsis": "Set during the monsoon season in Kerala, this poetic drama explores the lives of three generations of women and how the rain brings both renewal and memories of the past.",
+      "director": "Shyamaprasad",
+      "producer": "Antony Perumbavoor",
+      "music": "Bijibal",
+      "cast": [
+        {"name": "Manju Warrier", "character": "Lakshmi", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"},
+        {"name": "Tovino Thomas", "character": "Arun", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600"
+      ],
+      "awards": [
+        "Best Cinematography - Kerala State Awards 2024"
+      ],
+      "releaseDate": "June 28, 2024"
+    },
+    {
+      "id": 19,
+      "title": "சர்க்கஸ் கும்பல்",
+      "tagline": "சிரிப்பின் பின்னால் உள்ள கண்ணீர்",
+      "poster": "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Comedy", "Drama"],
+      "year": 2024,
+      "duration": "2h 22m",
+      "rating": 4.4,
+      "language": "Tamil",
+      "status": "Released",
+      "synopsis": "A heartwarming comedy-drama about a struggling circus troupe trying to keep their art alive in the modern world. Behind the laughter and entertainment lies stories of hope, dreams, and survival.",
+      "director": "S.P. Jananathan",
+      "producer": "Dream Warrior Pictures",
+      "music": "Yuvan Shankar Raja",
+      "cast": [
+        {"name": "Suriya", "character": "Muthu", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+        {"name": "Jyothika", "character": "Janaki", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=600"
+      ],
+      "awards": [
+        "Best Comedy Film - Filmfare South 2024"
+      ],
+      "releaseDate": "November 1, 2024"
+    },
+    {
+      "id": 20,
+      "title": "गली का गुंडा",
+      "tagline": "जब गली बोलती है",
+      "poster": "https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Action", "Drama"],
+      "year": 2024,
+      "duration": "2h 35m",
+      "rating": 4.6,
+      "language": "Hindi",
+      "status": "Released",
+      "synopsis": "From the gritty streets of Mumbai emerges a powerful tale of a man who becomes the voice of the voiceless. A gripping action drama about justice, loyalty, and redemption.",
+      "director": "Anurag Kashyap",
+      "producer": "Phantom Films",
+      "music": "Amit Trivedi",
+      "cast": [
+        {"name": "Ranveer Singh", "character": "Munna", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Alia Bhatt", "character": "Meera", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=600"
+      ],
+      "awards": [
+        "Best Actor - Filmfare 2024"
+      ],
+      "releaseDate": "March 22, 2024"
+    },
+    {
+      "id": 21,
+      "title": "Dragon's Legacy",
+      "tagline": "Legends never die",
+      "poster": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Fantasy", "Adventure"],
+      "year": 2025,
+      "duration": "2h 30m",
+      "rating": 4.6,
+      "language": "English",
+      "status": "Upcoming",
+      "synopsis": "In a realm where dragons once ruled, a young warrior discovers she is the last of an ancient bloodline. She must master her powers and unite warring kingdoms before darkness consumes the land.",
+      "director": "Peter Jackson",
+      "producer": "Fran Walsh",
+      "music": "Howard Shore",
+      "cast": [
+        {"name": "Zendaya", "character": "Princess Aria", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"},
+        {"name": "Tom Holland", "character": "Prince Kael", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"}
+      ],
+      "gallery": [],
+      "awards": [],
+      "releaseDate": "July 18, 2025"
+    },
+    {
+      "id": 22,
+      "title": "వీర తెలుగు",
+      "tagline": "తెలుగు వీరుల కథ",
+      "poster": "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Historical", "War"],
+      "year": 2024,
+      "duration": "3h 5m",
+      "rating": 4.9,
+      "language": "Telugu",
+      "status": "Released",
+      "synopsis": "An epic historical drama based on true events from Telugu warrior history. The film showcases the bravery, sacrifice, and patriotism of forgotten heroes who fought for their land.",
+      "director": "Gunasekhar",
+      "producer": "Arka Media Works",
+      "music": "M.M. Keeravani",
+      "cast": [
+        {"name": "Ram Charan", "character": "Veera Reddy", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Kiara Advani", "character": "Padmavati", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=600"
+      ],
+      "awards": [
+        "Best Historical Film - National Awards 2024",
+        "Best Costume Design - SIIMA 2024"
+      ],
+      "releaseDate": "January 14, 2024"
+    },
+    {
+      "id": 23,
+      "title": "Silent Whispers",
+      "tagline": "Sometimes silence speaks the loudest",
+      "poster": "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Drama", "Mystery"],
+      "year": 2024,
+      "duration": "2h 5m",
+      "rating": 4.4,
+      "language": "English",
+      "status": "Released",
+      "synopsis": "A deaf artist witnesses a crime but struggles to communicate what she saw. As she becomes the target, she must use her unique perspective to uncover the truth.",
+      "director": "Jane Campion",
+      "producer": "Dede Gardner",
+      "music": "Trent Reznor",
+      "cast": [
+        {"name": "Emily Blunt", "character": "Maya Collins", "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200"},
+        {"name": "John Krasinski", "character": "Detective Ryan Shaw", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=600"
+      ],
+      "awards": [
+        "Best Cinematography - Cannes Film Festival 2024"
+      ],
+      "releaseDate": "May 10, 2024"
+    },
+    {
+      "id": 24,
+      "title": "കാട്ടുകഥകൾ",
+      "tagline": "വനത്തിന്റെ രഹസ്യങ്ങൾ",
+      "poster": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Adventure", "Mystery"],
+      "year": 2024,
+      "duration": "2h 12m",
+      "rating": 4.3,
+      "language": "Malayalam",
+      "status": "Released",
+      "synopsis": "An adventurous tale set deep in the Western Ghats forests where a group of environmentalists uncover ancient secrets while trying to protect the ecosystem from corporate exploitation.",
+      "director": "Martin Prakkat",
+      "producer": "Kunchacko Boban Productions",
+      "music": "Sushin Shyam",
+      "cast": [
+        {"name": "Kunchacko Boban", "character": "Aravind", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"},
+        {"name": "Aparna Balamurali", "character": "Kavya", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600"
+      ],
+      "awards": [
+        "Best Environmental Film - IFFK 2024"
+      ],
+      "releaseDate": "September 5, 2024"
+    },
+    {
+      "id": 25,
+      "title": "பெண் சக்தி",
+      "tagline": "வலிமையின் புதிய வரையறை",
+      "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Action", "Thriller"],
+      "year": 2025,
+      "duration": "2h 28m",
+      "rating": 4.7,
+      "language": "Tamil",
+      "status": "Upcoming",
+      "synopsis": "A female special forces officer leads a covert mission to rescue hostages from a terrorist organization. An adrenaline-pumping action thriller that redefines courage and strength.",
+      "director": "Lokesh Kanagaraj",
+      "producer": "Seven Screen Studio",
+      "music": "Anirudh Ravichander",
+      "cast": [
+        {"name": "Trisha Krishnan", "character": "Major Kavitha", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"},
+        {"name": "Karthi", "character": "Captain Ashok", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"}
+      ],
+      "gallery": [],
+      "awards": [],
+      "releaseDate": "March 8, 2025"
+    },
+    {
+      "id": 26,
+      "title": "गैंगस्टर की वापसी",
+      "tagline": "अंडरवर्ल्ड का बादशाह",
+      "poster": "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Crime", "Thriller"],
+      "year": 2025,
+      "duration": "2h 42m",
+      "rating": 4.5,
+      "language": "Hindi",
+      "status": "Upcoming",
+      "synopsis": "After years in exile, a legendary gangster returns to reclaim his empire. A gritty crime saga about power, betrayal, and the price of loyalty in the underworld.",
+      "director": "Vishal Bhardwaj",
+      "producer": "Eros International",
+      "music": "Vishal Bhardwaj",
+      "cast": [
+        {"name": "Ranbir Kapoor", "character": "Rajan Bhai", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Katrina Kaif", "character": "Zoya", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [],
+      "awards": [],
+      "releaseDate": "September 15, 2025"
+    },
+    {
+      "id": 27,
+      "title": "The Last Stand",
+      "tagline": "Heroes are forged in the darkest hour",
+      "poster": "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Action", "War"],
+      "year": 2024,
+      "duration": "2h 35m",
+      "rating": 4.6,
+      "language": "English",
+      "status": "Released",
+      "synopsis": "Based on true events, a small group of soldiers must defend a strategic position against overwhelming odds. A gripping tale of courage, sacrifice, and brotherhood.",
+      "director": "Kathryn Bigelow",
+      "producer": "Mark Boal",
+      "music": "Marco Beltrami",
+      "cast": [
+        {"name": "Chris Hemsworth", "character": "Captain John Miller", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Idris Elba", "character": "Sergeant David Harris", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=600"
+      ],
+      "awards": [
+        "Best Screenplay - Academy Awards 2024",
+        "Best Action Film - Critics Choice 2024"
+      ],
+      "releaseDate": "November 11, 2024"
+    },
+    {
+      "id": 28,
+      "title": "నేను నా దేశం",
+      "tagline": "దేశభక్తి ఒక భావన",
+      "poster": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Drama", "Patriotic"],
+      "year": 2024,
+      "duration": "2h 40m",
+      "rating": 4.8,
+      "language": "Telugu",
+      "status": "Released",
+      "synopsis": "An inspiring patriotic drama about a young IAS officer who fights against corruption and injustice. His unwavering dedication to serve the nation becomes an inspiration for millions.",
+      "director": "Koratala Siva",
+      "producer": "DVV Danayya",
+      "music": "Devi Sri Prasad",
+      "cast": [
+        {"name": "Jr NTR", "character": "Bharath", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Rashmika Mandanna", "character": "Sravani", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600"
+      ],
+      "awards": [
+        "Best Film - SIIMA 2024",
+        "Best Actor - Filmfare South 2024"
+      ],
+      "releaseDate": "August 15, 2024"
+    },
+    {
+      "id": 29,
+      "title": "കഥാപാത്രം",
+      "tagline": "ജീവിതം ഒരു കഥയാണ്",
+      "poster": "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Drama", "Biographical"],
+      "year": 2024,
+      "duration": "2h 32m",
+      "rating": 4.6,
+      "language": "Malayalam",
+      "status": "Released",
+      "synopsis": "A biographical drama based on the life of a legendary Malayalam actor. The film chronicles his journey from a struggling theater artist to becoming one of the most celebrated performers in Indian cinema.",
+      "director": "Adoor Gopalakrishnan",
+      "producer": "Mohanlal Productions",
+      "music": "Ilaiyaraaja",
+      "cast": [
+        {"name": "Mohanlal", "character": "Narayanan", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Shobana", "character": "Savitri", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=600"
+      ],
+      "awards": [
+        "Best Actor - National Film Awards 2024",
+        "Best Biographical Film - Kerala State Awards 2024"
+      ],
+      "releaseDate": "December 25, 2024"
+    },
+    {
+      "id": 30,
+      "title": "தீராத விலங்கு",
+      "tagline": "விடாமுயற்சியின் வெற்றி",
+      "poster": "https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=400",
+      "backdrop": "https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=1200",
+      "trailer": "dQw4w9WgXcQ",
+      "genre": ["Thriller", "Action"],
+      "year": 2025,
+      "duration": "2h 25m",
+      "rating": 4.7,
+      "language": "Tamil",
+      "status": "Upcoming",
+      "synopsis": "A relentless cop chases a brilliant criminal mastermind across continents. A high-stakes thriller about obsession, justice, and the thin line between hunter and hunted.",
+      "director": "Nelson Dilipkumar",
+      "producer": "Sun Pictures",
+      "music": "Anirudh Ravichander",
+      "cast": [
+        {"name": "Vijay", "character": "DCP Vetri", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200"},
+        {"name": "Trisha Krishnan", "character": "Priya", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"}
+      ],
+      "gallery": [],
+      "awards": [],
+      "releaseDate": "April 9, 2025"
+    }
+  ]
+}

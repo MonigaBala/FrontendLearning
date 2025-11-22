@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cast & Crew | CineMagic Productions</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)),
+                        url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200') center/cover;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .filter-tabs {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .filter-tab {
+            padding: 12px 30px;
+            background: var(--secondary-dark);
+            border: 2px solid var(--dark-grey);
+            color: var(--light-grey);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+        
+        .cast-profile-card {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            height: 100%;
+            border: 1px solid var(--dark-grey);
+        }
+        
+        .cast-profile-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+        
+        .cast-profile-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: var(--transition);
+            filter: grayscale(30%);
+        }
+        
+        .cast-profile-card:hover .cast-profile-image {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+        
+        .cast-profile-info {
+            padding: 25px;
+        }
+        
+        .cast-profile-name {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        
+        .cast-profile-role {
+            color: var(--accent-gold);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .cast-profile-bio {
+            color: var(--light-grey);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .cast-profile-films {
+            color: var(--light-grey);
+            font-size: 13px;
+        }
+        
+        .cast-profile-films strong {
+            color: var(--white);
+        }
+        
+        .search-cast {
+            max-width: 500px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+        
+        .search-cast input {
+            background: var(--secondary-dark);
+            border: 2px solid var(--dark-grey);
+            color: var(--white);
+            padding: 15px 20px 15px 50px;
+            border-radius: 50px;
+            width: 100%;
+        }
+        
+        .search-cast input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+        
+        .search-cast i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--light-grey);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="../index.html">
+                <span class="brand-text">CineMagic</span>
+                <span class="brand-subtitle">PRODUCTIONS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="movies.html">Movies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="watchlist.html">Watchlist</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="cast.html">Cast & Crew</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="hero-title" data-aos="fade-up">Our Talented Team</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Meet the creative minds behind our cinematic masterpieces
+            </p>
+        </div>
+    </section>
+
+    <!-- Filters & Search -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Search -->
+            <div class="search-cast" data-aos="fade-up">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search by name...">
+            </div>
+            
+            <!-- Department Filters -->
+            <div class="filter-tabs" data-aos="fade-up" data-aos-delay="200">
+                <button class="filter-tab active" data-department="all">All</button>
+                <button class="filter-tab" data-department="actor">Actors</button>
+                <button class="filter-tab" data-department="director">Directors</button>
+                <button class="filter-tab" data-department="producer">Producers</button>
+                <button class="filter-tab" data-department="cinematographer">Cinematography</button>
+                <button class="filter-tab" data-department="writer">Writers</button>
+                <button class="filter-tab" data-department="vfx">VFX Artists</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cast Grid -->
+    <section class="pb-5">
+        <div class="container">
+            <div class="row g-4" id="castGrid"></div>
+            
+            <!-- No Results -->
+            <div class="text-center py-5 d-none" id="noResults">
+                <i class="fas fa-user-slash" style="font-size: 80px; color: var(--dark-grey); margin-bottom: 20px;"></i>
+                <h3 style="color: var(--light-grey);">No talent found</h3>
+                <p style="color: var(--light-grey);">Try adjusting your search or filters</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand mb-3">
+                        <span class="brand-text">CineMagic</span>
+                        <span class="brand-subtitle d-block">PRODUCTIONS</span>
+                    </div>
+                    <p class="footer-text">Creating cinematic masterpieces that inspire, entertain, and leave lasting impressions.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <p class="text-center text-md-end footer-text">&copy; 2024 CineMagic Productions. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        const castData = [
+            {id: 1, name: "Sarah Chen", role: "Director", department: "director", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400", bio: "Award-winning director known for psychological thrillers and character-driven narratives.", films: 12},
+            {id: 2, name: "Michael Torres", role: "Lead Actor", department: "actor", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400", bio: "Versatile performer with range from action to drama, captivating audiences worldwide.", films: 25},
+            {id: 3, name: "Emily Parker", role: "Cinematographer", department: "cinematographer", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400", bio: "Master of visual storytelling, creating breathtaking imagery that elevates every frame.", films: 18},
+            {id: 4, name: "David Kim", role: "Producer", department: "producer", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400", bio: "Visionary producer bringing compelling stories to life with passion and precision.", films: 30},
+            {id: 5, name: "Jessica Martinez", role: "Lead Actress", department: "actor", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400", bio: "Dynamic actress with powerful performances that resonate deeply with audiences.", films: 20},
+            {id: 6, name: "Robert Johnson", role: "Director", department: "director", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400", bio: "Innovative filmmaker pushing cinematic boundaries with bold creative vision.", films: 15},
+            {id: 7, name: "Lisa Anderson", role: "Screenwriter", department: "writer", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400", bio: "Gifted writer crafting compelling narratives that captivate and inspire.", films: 22},
+            {id: 8, name: "James Wilson", role: "VFX Supervisor", department: "vfx", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400", bio: "Technical wizard creating stunning visual effects that blur reality and imagination.", films: 28},
+            {id: 9, name: "Amanda Lee", role: "Producer", department: "producer", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400", bio: "Strategic producer with keen eye for commercially and critically successful projects.", films: 17},
+            {id: 10, name: "Christopher Brown", role: "Actor", department: "actor", image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400", bio: "Character actor bringing depth and authenticity to every role.", films: 32},
+            {id: 11, name: "Maria Garcia", role: "Cinematographer", department: "cinematographer", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400", bio: "Cinematographer with unique aesthetic vision creating memorable visual experiences.", films: 14},
+            {id: 12, name: "Thomas White", role: "Writer", department: "writer", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400", bio: "Talented screenwriter known for sharp dialogue and intricate plot structures.", films: 19}
+        ];
+        
+        let filteredCast = [...castData];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({duration: 1000, once: true});
+            renderCast(castData);
+            initFilters();
+            initScrollEffects();
+            initThemeToggle();
+        });
+        
+        function renderCast(data) {
+            const grid = document.getElementById('castGrid');
+            const noResults = document.getElementById('noResults');
+            
+            if (data.length === 0) {
+                grid.innerHTML = '';
+                noResults.classList.remove('d-none');
+                return;
+            }
+            
+            noResults.classList.add('d-none');
+            grid.innerHTML = data.map((person, i) => `
+                <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="${i * 50}">
+                    <div class="cast-profile-card" onclick="window.location.href='profile.html?id=${person.id}'">
+                        <img src="${person.image}" alt="${person.name}" class="cast-profile-image">
+                        <div class="cast-profile-info">
+                            <h3 class="cast-profile-name">${person.name}</h3>
+                            <p class="cast-profile-role">${person.role}</p>
+                            <p class="cast-profile-bio">${person.bio}</p>
+                            <p class="cast-profile-films"><strong>${person.films}</strong> Films</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function initFilters() {
+            // Department filters
+            document.querySelectorAll('.filter-tab').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    filterCast();
+                });
+            });
+            
+            // Search
+            document.getElementById('searchInput').addEventListener('input', debounce(filterCast, 300));
+        }
+        
+        function filterCast() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const department = document.querySelector('.filter-tab.active').dataset.department;
+            
+            filteredCast = castData.filter(person => {
+                const matchesSearch = person.name.toLowerCase().includes(search) || person.role.toLowerCase().includes(search);
+                const matchesDept = department === 'all' || person.department === department;
+                return matchesSearch && matchesDept;
+            });
+            
+            renderCast(filteredCast);
+        }
+        
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func(...args), wait);
+            };
+        }
+        
+        function initScrollEffects() {
+            const nav = document.getElementById('mainNav');
+            const scrollToTop = document.getElementById('scrollToTop');
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('scrolled', window.scrollY > 100);
+                scrollToTop.classList.toggle('visible', window.scrollY > 300);
+            });
+            scrollToTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+        }
+        
+        function initThemeToggle() {
+            const toggle = document.getElementById('themeToggle');
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                toggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            toggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                const newTheme = current === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            });
+        }
+    </script>
+</body>
+</html>

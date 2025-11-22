@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Press | CineMagic Productions</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- <script src="https://cdn.tailwindcss.com"></script>-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)),
+                        url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200') center/cover;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .news-filters {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .news-filter-btn {
+            padding: 12px 30px;
+            background: var(--secondary-dark);
+            border: 2px solid var(--dark-grey);
+            color: var(--light-grey);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .news-filter-btn:hover,
+        .news-filter-btn.active {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+        
+        .featured-news {
+            background: var(--secondary-dark);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 60px;
+            border: 1px solid var(--dark-grey);
+            transition: var(--transition);
+        }
+        
+        .featured-news:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+        
+        .featured-news-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .featured-news-content {
+            padding: 40px;
+        }
+        
+        .featured-badge {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .news-card {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            height: 100%;
+            border: 1px solid var(--dark-grey);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+        
+        .news-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .news-card:hover .news-image {
+            transform: scale(1.1);
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-category {
+            display: inline-block;
+            padding: 6px 15px;
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--accent-gold);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .news-date {
+            color: var(--light-grey);
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .news-title {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            color: var(--white);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .news-excerpt {
+            color: var(--light-grey);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .read-more {
+            color: var(--accent-gold);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+        
+        .read-more:hover {
+            gap: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="../index.html">
+                <span class="brand-text">CineMagic</span>
+                <span class="brand-subtitle">PRODUCTIONS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="movies.html">Movies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="watchlist.html">Watchlist</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cast.html">Cast & Crew</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="hero-title" data-aos="fade-up">News & Press</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Stay updated with our latest announcements and achievements
+            </p>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="py-5">
+        <div class="container">
+            <div class="news-filters" data-aos="fade-up">
+                <button class="news-filter-btn active" data-category="all">All News</button>
+                <button class="news-filter-btn" data-category="press">Press Releases</button>
+                <button class="news-filter-btn" data-category="awards">Awards</button>
+                <button class="news-filter-btn" data-category="festival">Film Festivals</button>
+                <button class="news-filter-btn" data-category="announcement">Announcements</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured News -->
+    <section class="pb-5">
+        <div class="container">
+            <div class="featured-news" data-aos="fade-up" id="featuredNews">
+                <div class="row g-0">
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=800" alt="Featured News" class="featured-news-image">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="featured-news-content">
+                            <span class="featured-badge">Featured</span>
+                            <span class="news-category">Awards</span>
+                            <div class="news-date">
+                                <i class="far fa-calendar"></i> November 20, 2024
+                            </div>
+                            <h2 class="section-title mb-3">'Eternal Echo' Wins Best Picture</h2>
+                            <p class="synopsis-text mb-4">
+                                Our latest masterpiece 'Eternal Echo' has been honored with the Best Picture award 
+                                at the prestigious International Film Awards. This marks our 85th major award and 
+                                solidifies our position as a leading production house in creating compelling narratives.
+                            </p>
+                            <a href="#" class="read-more">
+                                Read Full Story <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Grid -->
+    <section class="pb-5">
+        <div class="container">
+            <div class="row g-4" id="newsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand mb-3">
+                        <span class="brand-text">CineMagic</span>
+                        <span class="brand-subtitle d-block">PRODUCTIONS</span>
+                    </div>
+                    <p class="footer-text">Creating cinematic masterpieces that inspire, entertain, and leave lasting impressions.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <p class="text-center text-md-end footer-text">&copy; 2024 CineMagic Productions. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        const newsData = [
+            {
+                id: 1, category: 'press', title: 'Production Begins on Sci-Fi Epic "Beyond the Stars"',
+                excerpt: 'We are thrilled to announce the start of principal photography on our most ambitious project yet.',
+                image: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400',
+                date: 'November 18, 2024'
+            },
+            {
+                id: 2, category: 'awards', title: 'Director Sarah Chen Receives Lifetime Achievement Award',
+                excerpt: 'Our visionary director honored for her outstanding contribution to cinema over three decades.',
+                image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400',
+                date: 'November 15, 2024'
+            },
+            {
+                id: 3, category: 'festival', title: '"Urban Legends" Selected for Cannes Film Festival',
+                excerpt: 'Our horror thriller will have its world premiere at the prestigious Cannes Film Festival.',
+                image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400',
+                date: 'November 10, 2024'
+            },
+            {
+                id: 4, category: 'announcement', title: 'CineMagic Opens New Production Facility in Vancouver',
+                excerpt: 'Expanding our global footprint with a state-of-the-art studio in Vancouver, Canada.',
+                image: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=400',
+                date: 'November 5, 2024'
+            },
+            {
+                id: 5, category: 'press', title: '"Midnight Shadows" Breaks Box Office Records',
+                excerpt: 'Our latest thriller surpasses $500M worldwide, becoming the highest-grossing film of the year.',
+                image: 'https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=400',
+                date: 'October 28, 2024'
+            },
+            {
+                id: 6, category: 'awards', title: 'Four Nominations at the Golden Globe Awards',
+                excerpt: 'Eternal Echo receives nominations for Best Picture, Director, Actress, and Screenplay.',
+                image: 'https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=400',
+                date: 'October 20, 2024'
+            },
+            {
+                id: 7, category: 'festival', title: 'CineMagic Hosts Exclusive Masterclass at Toronto Film Festival',
+                excerpt: 'Industry professionals and aspiring filmmakers attend our exclusive workshop on storytelling.',
+                image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400',
+                date: 'October 12, 2024'
+            },
+            {
+                id: 8, category: 'announcement', title: 'Partnership with Streaming Giant for Exclusive Content',
+                excerpt: 'Multi-year deal to produce original films and series for global streaming platform.',
+                image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400',
+                date: 'October 5, 2024'
+            }
+        ];
+        
+        let filteredNews = [...newsData];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({duration: 1000, once: true});
+            renderNews(newsData);
+            initFilters();
+            initScrollEffects();
+            initThemeToggle();
+        });
+        
+        function renderNews(data) {
+            const grid = document.getElementById('newsGrid');
+            grid.innerHTML = data.map((news, i) => `
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${i * 50}">
+                    <div class="news-card" onclick="alert('News article ${news.id} - Full article page would open here')">
+                        <img src="${news.image}" alt="${news.title}" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">${news.category}</span>
+                            <div class="news-date">
+                                <i class="far fa-calendar"></i> ${news.date}
+                            </div>
+                            <h3 class="news-title">${news.title}</h3>
+                            <p class="news-excerpt">${news.excerpt}</p>
+                            <a href="#" class="read-more" onclick="event.stopPropagation()">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function initFilters() {
+            document.querySelectorAll('.news-filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.news-filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.dataset.category;
+                    filteredNews = category === 'all' 
+                        ? [...newsData]
+                        : newsData.filter(news => news.category === category);
+                    
+                    renderNews(filteredNews);
+                });
+            });
+        }
+        
+        function initScrollEffects() {
+            const nav = document.getElementById('mainNav');
+            const scrollToTop = document.getElementById('scrollToTop');
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('scrolled', window.scrollY > 100);
+                scrollToTop.classList.toggle('visible', window.scrollY > 300);
+            });
+            scrollToTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+        }
+        
+        function initThemeToggle() {
+            const toggle = document.getElementById('themeToggle');
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                toggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            toggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                const newTheme = current === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            });
+        }
+    </script>
+</body>
+</html>

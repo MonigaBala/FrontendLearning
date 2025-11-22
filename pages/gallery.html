@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | CineMagic Productions</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)),
+                        url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqcREUJwJpb6mvFfeQgvck2AKX_dBiKo_Kmg&s') center/cover;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .gallery-tabs {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+        
+        .gallery-tab {
+            padding: 12px 30px;
+            background: var(--secondary-dark);
+            border: 2px solid var(--dark-grey);
+            color: var(--light-grey);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .gallery-tab:hover,
+        .gallery-tab.active {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 350px;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-icon {
+            font-size: 50px;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.95), transparent);
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .gallery-title {
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .gallery-category {
+            color: var(--accent-gold);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 250px;
+            gap: 30px;
+        }
+        
+        .gallery-item.tall {
+            grid-row: span 2;
+            height: 530px;
+        }
+        
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="../index.html">
+                <span class="brand-text">CineMagic</span>
+                <span class="brand-subtitle">PRODUCTIONS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="movies.html">Movies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="watchlist.html">Watchlist</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cast.html">Cast & Crew</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="hero-title" data-aos="fade-up">Gallery</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                A visual journey through our cinematic world
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery Filters -->
+    <section class="py-5">
+        <div class="container">
+            <div class="gallery-tabs" data-aos="fade-up">
+                <button class="gallery-tab active" data-category="all">All</button>
+                <button class="gallery-tab" data-category="bts">Behind the Scenes</button>
+                <button class="gallery-tab" data-category="posters">Movie Posters</button>
+                <button class="gallery-tab" data-category="events">Events & Premieres</button>
+                <button class="gallery-tab" data-category="studio">Studio</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="pb-5">
+        <div class="container">
+            <div class="masonry-grid" id="galleryGrid"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand mb-3">
+                        <span class="brand-text">CineMagic</span>
+                        <span class="brand-subtitle d-block">PRODUCTIONS</span>
+                    </div>
+                    <p class="footer-text">Creating cinematic masterpieces that inspire, entertain, and leave lasting impressions.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <p class="text-center text-md-end footer-text">&copy; 2024 CineMagic Productions. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        const galleryData = [
+            {id: 1, category: 'bts', title: 'Director at Work', image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600', size: 'normal'},
+            {id: 2, category: 'posters', title: 'Eternal Echo Poster', image: 'https://prod5.agileticketing.net/images/user/thestate_3895/eternalechoposter2.jpg', size: 'normal'},
+            {id: 3, category: 'events', title: 'Red Carpet Premiere', image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600', size: 'normal'},
+            {id: 4, category: 'studio', title: 'Production Studio', image: 'https://png.pngtree.com/thumb_back/fh260/background/20240402/pngtree-behind-the-scenes-of-videographer-or-photographer-shooting-video-or-movie-image_15648497.jpg', size: 'normal'},
+            {id: 5, category: 'bts', title: 'Cinematography Setup', image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600', size: 'normal'},
+            {id: 6, category: 'posters', title: 'Urban Legends Poster', image: 'https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=600', size: 'normal'},
+            {id: 7, category: 'events', title: 'Award Ceremony', image: 'https://img.freepik.com/free-vector/gradient-oscars-film-awards-background_23-2151251777.jpg?semt=ais_incoming&w=740&q=80', size: 'normal'},
+            {id: 8, category: 'bts', title: 'Action Sequence Filming', image: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600', size: 'normal'},
+            {id: 9, category: 'studio', title: 'Editing Suite', image: 'https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmlkZW8lMjBlZGl0aW5nfGVufDB8fDB8fHww', size: 'normal'},
+            {id: 10, category: 'posters', title: 'Midnight Shadows', image: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1651093498i/60894295.jpg', size: 'normal'},
+            {id: 11, category: 'events', title: 'Film Festival', image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600', size: 'normal'},
+            {id: 12, category: 'bts', title: 'Makeup & Costume', image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600', size: 'normal'}
+        ];
+        
+        let filteredGallery = [...galleryData];
+        let lightbox;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({duration: 1000, once: true});
+            renderGallery(galleryData);
+            initLightbox();
+            initFilters();
+            initScrollEffects();
+            initThemeToggle();
+        });
+        
+        function renderGallery(data) {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = data.map((item, i) => `
+                <a href="${item.image}" class="glightbox gallery-item ${item.size}" data-gallery="gallery" 
+                   data-aos="fade-up" data-aos-delay="${i * 50}">
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus gallery-icon"></i>
+                    </div>
+                    <div class="gallery-caption">
+                        <div class="gallery-title">${item.title}</div>
+                        <div class="gallery-category">${item.category}</div>
+                    </div>
+                </a>
+            `).join('');
+            
+            // Reinitialize lightbox after rendering
+            if (lightbox) lightbox.destroy();
+            initLightbox();
+        }
+        
+        function initLightbox() {
+            lightbox = GLightbox({
+                selector: '.glightbox',
+                touchNavigation: true,
+                loop: true,
+                autoplayVideos: true
+            });
+        }
+        
+        function initFilters() {
+            document.querySelectorAll('.gallery-tab').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.gallery-tab').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.dataset.category;
+                    filteredGallery = category === 'all' 
+                        ? [...galleryData]
+                        : galleryData.filter(item => item.category === category);
+                    
+                    renderGallery(filteredGallery);
+                });
+            });
+        }
+        
+        function initScrollEffects() {
+            const nav = document.getElementById('mainNav');
+            const scrollToTop = document.getElementById('scrollToTop');
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('scrolled', window.scrollY > 100);
+                scrollToTop.classList.toggle('visible', window.scrollY > 300);
+            });
+            scrollToTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+        }
+        
+        function initThemeToggle() {
+            const toggle = document.getElementById('themeToggle');
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                toggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            toggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                const newTheme = current === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | CineMagic Productions</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)),
+                        url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200') center/cover;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-gold), var(--accent-blue));
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            background: var(--secondary-dark);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--dark-grey);
+            transition: var(--transition);
+        }
+        
+        .timeline-content:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .timeline-title {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+        
+        .timeline-text {
+            color: var(--light-grey);
+            line-height: 1.6;
+        }
+        
+        .team-card {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--dark-grey);
+            text-align: center;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+        
+        .team-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: var(--transition);
+        }
+        
+        .team-card:hover .team-image {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+        
+        .team-info {
+            padding: 25px;
+        }
+        
+        .team-name {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        
+        .team-position {
+            color: var(--accent-gold);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        
+        .vision-mission-card {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            padding: 50px;
+            border: 1px solid var(--dark-grey);
+            height: 100%;
+            transition: var(--transition);
+        }
+        
+        .vision-mission-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-10px);
+        }
+        
+        .vision-mission-icon {
+            font-size: 60px;
+            color: var(--accent-gold);
+            margin-bottom: 30px;
+        }
+        
+        .vision-mission-title {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        
+        .vision-mission-text {
+            color: var(--light-grey);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .facility-card {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--dark-grey);
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+        }
+        
+        .facility-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .facility-card:hover .facility-image {
+            transform: scale(1.1);
+        }
+        
+        .facility-info {
+            padding: 25px;
+        }
+        
+        .facility-name {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+        
+        .facility-desc {
+            color: var(--light-grey);
+            line-height: 1.6;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            border: 1px solid var(--dark-grey);
+            transition: var(--transition);
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 40px;
+            }
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+                padding-left: 80px;
+            }
+            .timeline-content {
+                width: 100%;
+            }
+            .timeline-year {
+                left: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="../index.html">
+                <span class="brand-text">CineMagic</span>
+                <span class="brand-subtitle">PRODUCTIONS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="movies.html">Movies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="watchlist.html">Watchlist</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cast.html">Cast & Crew</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="hero-title" data-aos="fade-up">Our Story</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                25 Years of Cinematic Excellence
+            </p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <p class="synopsis-text text-center">
+                        Founded in 1999, CineMagic Productions has been at the forefront of cinematic storytelling, 
+                        creating films that resonate with audiences worldwide. Our commitment to excellence, innovation, 
+                        and authentic narratives has earned us numerous accolades and a reputation as one of the industry's 
+                        most respected production houses. We believe in the power of stories to inspire, challenge, and 
+                        transform lives.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Overview -->
+    <section class="section py-5" style="background: var(--secondary-dark);">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up">
+                    <div class="stats-card">
+                        <i class="fas fa-film" style="font-size: 50px; color: var(--accent-gold); margin-bottom: 20px;"></i>
+                        <h3 style="font-family: var(--font-heading); font-size: 48px; color: var(--white); margin-bottom: 10px;">150+</h3>
+                        <p style="color: var(--light-grey); text-transform: uppercase; letter-spacing: 1px;">Films Produced</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-card">
+                        <i class="fas fa-trophy" style="font-size: 50px; color: var(--accent-gold); margin-bottom: 20px;"></i>
+                        <h3 style="font-family: var(--font-heading); font-size: 48px; color: var(--white); margin-bottom: 10px;">85+</h3>
+                        <p style="color: var(--light-grey); text-transform: uppercase; letter-spacing: 1px;">Awards Won</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-card">
+                        <i class="fas fa-globe" style="font-size: 50px; color: var(--accent-gold); margin-bottom: 20px;"></i>
+                        <h3 style="font-family: var(--font-heading); font-size: 48px; color: var(--white); margin-bottom: 10px;">50+</h3>
+                        <p style="color: var(--light-grey); text-transform: uppercase; letter-spacing: 1px;">Countries Reached</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stats-card">
+                        <i class="fas fa-users" style="font-size: 50px; color: var(--accent-gold); margin-bottom: 20px;"></i>
+                        <h3 style="font-family: var(--font-heading); font-size: 48px; color: var(--white); margin-bottom: 10px;">500+</h3>
+                        <p style="color: var(--light-grey); text-transform: uppercase; letter-spacing: 1px;">Team Members</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Journey</span>
+                <h2 class="section-title">Our History</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">The Beginning</h3>
+                        <p class="timeline-text">CineMagic Productions was founded with a vision to create meaningful cinema that connects with global audiences.</p>
+                    </div>
+                    <div class="timeline-year">1999</div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">First Major Success</h3>
+                        <p class="timeline-text">Our breakthrough film wins multiple awards at international film festivals, establishing our reputation.</p>
+                    </div>
+                    <div class="timeline-year">2005</div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Global Expansion</h3>
+                        <p class="timeline-text">Opened offices in Los Angeles and London, expanding our reach to international markets.</p>
+                    </div>
+                    <div class="timeline-year">2010</div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">100th Production</h3>
+                        <p class="timeline-text">Celebrated milestone with our 100th film production, a testament to our consistent quality.</p>
+                    </div>
+                    <div class="timeline-year">2018</div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Present Day</h3>
+                        <p class="timeline-text">Continuing to push boundaries with innovative storytelling and cutting-edge technology.</p>
+                    </div>
+                    <div class="timeline-year">2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="section py-5" style="background: var(--secondary-dark);">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="vision-mission-card">
+                        <i class="fas fa-eye vision-mission-icon"></i>
+                        <h3 class="vision-mission-title">Our Vision</h3>
+                        <p class="vision-mission-text">
+                            To be the world's most respected production house, creating timeless stories that 
+                            transcend borders, cultures, and generations. We envision a future where our films 
+                            inspire positive change and foster global understanding through the universal language 
+                            of cinema.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="vision-mission-card">
+                        <i class="fas fa-bullseye vision-mission-icon"></i>
+                        <h3 class="vision-mission-title">Our Mission</h3>
+                        <p class="vision-mission-text">
+                            To produce exceptional films that entertain, enlighten, and elevate the human spirit. 
+                            We are committed to nurturing creative talent, embracing innovation, and maintaining 
+                            the highest standards of artistic integrity in every project we undertake.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Leadership</span>
+                <h2 class="section-title">Our Founders & Management</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400" alt="John Mitchell" class="team-image">
+                        <div class="team-info">
+                            <h3 class="team-name">John Mitchell</h3>
+                            <p class="team-position">Founder & CEO</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" alt="Sarah Williams" class="team-image">
+                        <div class="team-info">
+                            <h3 class="team-name">Sarah Williams</h3>
+                            <p class="team-position">Co-Founder & Creative Director</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" alt="David Chen" class="team-image">
+                        <div class="team-info">
+                            <h3 class="team-name">David Chen</h3>
+                            <p class="team-position">Chief Production Officer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities -->
+    <section class="section py-5" style="background: var(--secondary-dark);">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Infrastructure</span>
+                <h2 class="section-title">Our Facilities</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="facility-card">
+                        <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=400" alt="Production Studio" class="facility-image">
+                        <div class="facility-info">
+                            <h3 class="facility-name">State-of-the-Art Studios</h3>
+                            <p class="facility-desc">Six sound stages equipped with the latest technology for seamless production.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="facility-card">
+                        <img src="https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=400" alt="Post Production" class="facility-image">
+                        <div class="facility-info">
+                            <h3 class="facility-name">Post-Production Suite</h3>
+                            <p class="facility-desc">Advanced editing, color grading, and VFX facilities with cutting-edge software.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="facility-card">
+                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400" alt="Equipment" class="facility-image">
+                        <div class="facility-info">
+                            <h3 class="facility-name">Equipment Warehouse</h3>
+                            <p class="facility-desc">Extensive inventory of cameras, lighting, and grip equipment for rent or use.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand mb-3">
+                        <span class="brand-text">CineMagic</span>
+                        <span class="brand-subtitle d-block">PRODUCTIONS</span>
+                    </div>
+                    <p class="footer-text">Creating cinematic masterpieces that inspire, entertain, and leave lasting impressions.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <p class="text-center text-md-end footer-text">&copy; 2024 CineMagic Productions. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({duration: 1000, once: true});
+            initScrollEffects();
+            initThemeToggle();
+        });
+        
+        function initScrollEffects() {
+            const nav = document.getElementById('mainNav');
+            const scrollToTop = document.getElementById('scrollToTop');
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('scrolled', window.scrollY > 100);
+                scrollToTop.classList.toggle('visible', window.scrollY > 300);
+            });
+            scrollToTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+        }
+        
+        function initThemeToggle() {
+            const toggle = document.getElementById('themeToggle');
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                toggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            toggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                const newTheme = current === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            });
+        }
+    </script>
+</body>
+</html>

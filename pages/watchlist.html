@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Watchlist | CineMagic Productions</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)),
+                        url('https://p7.hiclipart.com/preview/537/171/594/film-industry-filmmaking-film-producer-production-companies-others.jpg') center/cover;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .watchlist-stats {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            color: var(--light-grey);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .empty-watchlist {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .empty-watchlist i {
+            font-size: 100px;
+            color: var(--dark-grey);
+            margin-bottom: 30px;
+        }
+        
+        .empty-watchlist h2 {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+        
+        .empty-watchlist p {
+            color: var(--light-grey);
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="../index.html">
+                <span class="brand-text">CineMagic</span>
+                <span class="brand-subtitle">PRODUCTIONS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="movies.html">Movies</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="watchlist.html">Watchlist</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cast.html">Cast & Crew</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="hero-title" data-aos="fade-up">My Watchlist</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Your personal collection of movies to watch
+            </p>
+        </div>
+    </section>
+
+    <!-- Watchlist Stats -->
+    <section class="py-5">
+        <div class="container">
+            <div class="watchlist-stats" data-aos="fade-up" id="watchlistStats">
+                <div class="stat-item">
+                    <div class="stat-number" id="totalMovies">0</div>
+                    <div class="stat-label">Total Movies</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="totalDuration">0h 0m</div>
+                    <div class="stat-label">Total Duration</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="avgRating">0.0</div>
+                    <div class="stat-label">Avg Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Watchlist Grid -->
+    <section class="pb-5">
+        <div class="container">
+            <div class="row g-4" id="watchlistContainer"></div>
+            
+            <!-- Empty State -->
+            <div class="empty-watchlist d-none" id="emptyWatchlist">
+                <i class="fas fa-heart-broken"></i>
+                <h2>Your Watchlist is Empty</h2>
+                <p>Start adding movies to your watchlist to keep track of what you want to watch!</p>
+                <a href="movies.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-film me-2"></i>Browse Movies
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand mb-3">
+                        <span class="brand-text">CineMagic</span>
+                        <span class="brand-subtitle d-block">PRODUCTIONS</span>
+                    </div>
+                    <p class="footer-text">Creating cinematic masterpieces that inspire, entertain, and leave lasting impressions.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <p class="text-center text-md-end footer-text">&copy; 2024 CineMagic Productions. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Movies data (same as movies.js)
+        const moviesData = [
+            {id: 1, title: "Eternal Echo", poster: "https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=400", genre: ["Drama", "Mystery"], year: 2024, duration: "2h 18m", rating: 4.5, language: "English", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 2, title: "காதல் கண் கட்டுதே", poster: "https://wallpapercave.com/wp/wp8495040.jpg", genre: ["Romance", "Drama"], year: 2024, duration: "2h 35m", rating: 4.7, language: "Tamil", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 3, title: "जंग का मैदान", poster: "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=400", genre: ["Action", "War"], year: 2024, duration: "2h 45m", rating: 4.8, language: "Hindi", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 4, title: "నిజాయితీ", poster: "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=400", genre: ["Thriller", "Crime"], year: 2024, duration: "2h 20m", rating: 4.6, language: "Telugu", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 5, title: "Urban Legends", poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400", genre: ["Horror", "Thriller"], year: 2023, duration: "1h 55m", rating: 4.2, language: "English", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 6, title: "സ്വപ്നം", poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400", genre: ["Drama", "Family"], year: 2024, duration: "2h 10m", rating: 4.5, language: "Malayalam", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 7, title: "Beyond the Stars", poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400", genre: ["Sci-Fi", "Adventure"], year: 2025, duration: "2h 45m", rating: 4.8, language: "English", status: "Upcoming", trailer: "dQw4w9WgXcQ"},
+            {id: 8, title: "விக்ரம் வேதா 2", poster: "https://m.media-amazon.com/images/M/MV5BN2U2YzA4ZTItODBjYy00ZmJmLThmODgtYTVjZGQ5ZmRlMGZhXkEyXkFqcGc@._V1_.jpg", genre: ["Action", "Thriller"], year: 2025, duration: "2h 30m", rating: 4.7, language: "Tamil", status: "Upcoming", trailer: "dQw4w9WgXcQ"},
+            {id: 9, title: "पठान की वापसी", poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400", genre: ["Action", "Spy"], year: 2025, duration: "2h 40m", rating: 4.9, language: "Hindi", status: "Upcoming", trailer: "dQw4w9WgXcQ"},
+            {id: 10, title: "రాక్షస రాజ", poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400", genre: ["Fantasy", "Action"], year: 2024, duration: "2h 55m", rating: 4.6, language: "Telugu", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 11, title: "Midnight Shadows", poster: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1651093498i/60894295.jpg", genre: ["Thriller", "Crime"], year: 2025, duration: "2h 15m", rating: 4.7, language: "English", status: "Upcoming", trailer: "dQw4w9WgXcQ"},
+            {id: 12, title: "മൊഹബത്ത്", poster: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400", genre: ["Romance", "Musical"], year: 2024, duration: "2h 25m", rating: 4.4, language: "Malayalam", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 13, title: "கொடும் கோடை", poster: "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=400", genre: ["Drama", "Social"], year: 2024, duration: "2h 15m", rating: 4.3, language: "Tamil", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 14, title: "धूम 4", poster: "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=400", genre: ["Action", "Heist"], year: 2025, duration: "2h 30m", rating: 4.5, language: "Hindi", status: "Upcoming", trailer: "dQw4w9WgXcQ"},
+            {id: 15, title: "The Quantum Paradox", poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400", genre: ["Sci-Fi", "Mystery"], year: 2024, duration: "2h 28m", rating: 4.6, language: "English", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 16, title: "రాజు గారి గద్దె", poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400", genre: ["Action", "Political"], year: 2024, duration: "2h 48m", rating: 4.7, language: "Telugu", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 17, title: "Love in Paris", poster: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400", genre: ["Romance", "Drama"], year: 2025, duration: "1h 58m", rating: 4.3, language: "English", status: "Upcoming", trailer: "dQw4w9WgXcQ"},
+            {id: 18, title: "കാലവർഷം", poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400", genre: ["Drama", "Romance"], year: 2024, duration: "2h 18m", rating: 4.5, language: "Malayalam", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 19, title: "சர்க்கஸ் கும்பல்", poster: "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=400", genre: ["Comedy", "Drama"], year: 2024, duration: "2h 22m", rating: 4.4, language: "Tamil", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 20, title: "गली का गुंडा", poster: "https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=400", genre: ["Action", "Drama"], year: 2024, duration: "2h 35m", rating: 4.6, language: "Hindi", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 21, title: "Dragon's Legacy", poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400", genre: ["Fantasy", "Adventure"], year: 2025, duration: "2h 30m", rating: 4.6, language: "English", status: "Upcoming", trailer: "dQw4w9WgXcQ"},
+            {id: 22, title: "వీర తెలుగు", poster: "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=400", genre: ["Historical", "War"], year: 2024, duration: "3h 5m", rating: 4.9, language: "Telugu", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 23, title: "Silent Whispers", poster: "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=400", genre: ["Drama", "Mystery"], year: 2024, duration: "2h 5m", rating: 4.4, language: "English", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 24, title: "കാട്ടുകഥകൾ", poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400", genre: ["Adventure", "Mystery"], year: 2024, duration: "2h 12m", rating: 4.3, language: "Malayalam", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 25, title: "பெண் சக்தி", poster: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400", genre: ["Action", "Thriller"], year: 2025, duration: "2h 28m", rating: 4.7, language: "Tamil", status: "Upcoming", trailer: "dQw4w9WgXcQ"},
+            {id: 26, title: "गैंगस्टर की वापसी", poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400", genre: ["Crime", "Thriller"], year: 2025, duration: "2h 42m", rating: 4.5, language: "Hindi", status: "Upcoming", trailer: "dQw4w9WgXcQ"},
+            {id: 27, title: "The Last Stand", poster: "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=400", genre: ["Action", "War"], year: 2024, duration: "2h 35m", rating: 4.6, language: "English", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 28, title: "నేను నా దేశం", poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400", genre: ["Drama", "Patriotic"], year: 2024, duration: "2h 40m", rating: 4.8, language: "Telugu", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 29, title: "കഥാപാത്രം", poster: "https://images.unsplash.com/photo-1574267432644-f610c7a30bea?w=400", genre: ["Drama", "Biographical"], year: 2024, duration: "2h 32m", rating: 4.6, language: "Malayalam", status: "Released", trailer: "dQw4w9WgXcQ"},
+            {id: 30, title: "தீராத விலங்கு", poster: "https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=400", genre: ["Thriller", "Action"], year: 2025, duration: "2h 25m", rating: 4.7, language: "Tamil", status: "Upcoming", trailer: "dQw4w9WgXcQ"}
+        ];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({duration: 1000, once: true});
+            loadWatchlist();
+            initScrollEffects();
+            initThemeToggle();
+        });
+        
+        function loadWatchlist() {
+            const watchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
+            const container = document.getElementById('watchlistContainer');
+            const emptyState = document.getElementById('emptyWatchlist');
+            const statsContainer = document.getElementById('watchlistStats');
+            
+            if (watchlist.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('d-none');
+                statsContainer.classList.add('d-none');
+                return;
+            }
+            
+            emptyState.classList.add('d-none');
+            statsContainer.classList.remove('d-none');
+            
+            const watchlistMovies = moviesData.filter(movie => watchlist.includes(movie.id));
+            
+            // Calculate stats
+            const totalMovies = watchlistMovies.length;
+            const totalMinutes = watchlistMovies.reduce((sum, movie) => {
+                const duration = movie.duration.match(/(\d+)h\s*(\d+)m/);
+                return sum + (parseInt(duration[1]) * 60) + parseInt(duration[2]);
+            }, 0);
+            const totalHours = Math.floor(totalMinutes / 60);
+            const remainingMinutes = totalMinutes % 60;
+            const avgRating = (watchlistMovies.reduce((sum, movie) => sum + movie.rating, 0) / totalMovies).toFixed(1);
+            
+            document.getElementById('totalMovies').textContent = totalMovies;
+            document.getElementById('totalDuration').textContent = `${totalHours}h ${remainingMinutes}m`;
+            document.getElementById('avgRating').textContent = avgRating;
+            
+            container.innerHTML = watchlistMovies.map((movie, i) => `
+                <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="${i * 50}">
+                    <div class="movie-card">
+                        <button class="watchlist-btn active" onclick="removeFromWatchlist(${movie.id})" title="Remove from watchlist">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <img src="${movie.poster}" alt="${movie.title}" class="movie-poster" loading="lazy">
+                        <div class="movie-info">
+                            <h3 class="movie-title">${movie.title}</h3>
+                            <div class="movie-meta">
+                                <span class="movie-genre">${movie.genre[0]}</span>
+                                <span class="movie-year">${movie.year}</span>
+                                <span class="movie-duration">${movie.duration}</span>
+                            </div>
+                            <div class="movie-meta">
+                                <span style="color: var(--accent-gold);">
+                                    ${'★'.repeat(Math.floor(movie.rating))}${'☆'.repeat(5 - Math.floor(movie.rating))}
+                                </span>
+                                <span class="badge ${movie.status === 'Released' ? 'bg-success' : 'bg-warning'}">${movie.status}</span>
+                            </div>
+                            <div class="movie-actions">
+                                <button class="btn-details" onclick="window.location.href='movie-detail.html?id=${movie.id}'">
+                                    Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function removeFromWatchlist(movieId) {
+            let watchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
+            watchlist = watchlist.filter(id => id !== movieId);
+            localStorage.setItem('watchlist', JSON.stringify(watchlist));
+            showNotification('Removed from watchlist');
+            loadWatchlist();
+        }
+        
+        function showNotification(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                background: var(--accent-gold);
+                color: var(--primary-dark);
+                padding: 15px 25px;
+                border-radius: 8px;
+                font-weight: 600;
+                z-index: 9999;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+        
+        function initScrollEffects() {
+            const nav = document.getElementById('mainNav');
+            const scrollToTop = document.getElementById('scrollToTop');
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('scrolled', window.scrollY > 100);
+                scrollToTop.classList.toggle('visible', window.scrollY > 300);
+            });
+            scrollToTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+        }
+        
+        function initThemeToggle() {
+            const toggle = document.getElementById('themeToggle');
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                toggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            toggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                const newTheme = current === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            });
+        }
+    </script>
+</body>
+</html>
